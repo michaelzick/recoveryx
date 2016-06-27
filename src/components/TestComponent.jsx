@@ -1,6 +1,6 @@
 var React = require('react'),
-    Actions = require('../actions/Actions'),
-    Store = require('../stores/Store');
+    Actions = require('../../src/actions/Actions'),
+    Store = require('../../src/stores/Store');
 
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -55,18 +55,27 @@ var TestComponent = React.createClass({
   getInitialState: function() {
     return Store.get();
   },
+
   componentDidMount: function() {
     Store.addListener('change', this.changeEventHandler);
   },
+
   changeEventHandler: function() {
     this.setState(Store.get());
   },
+
   handleChange: function(event) {
     Actions.set(event.target.value);
   },
+
   handleButtonClick: function(event) {
     Actions.add(1);
   },
+
+  log: function() {
+    console.log(workData);
+  },
+
 	render: function() {
 	  const standardActions = (
       <FlatButton
@@ -89,7 +98,7 @@ var TestComponent = React.createClass({
           <RaisedButton
             label="Super Secret Password"
             primary={true}
-            onTouchTap={this.handleTouchTap}
+            onTouchTap={this.log}
           />
 
           <Dialog

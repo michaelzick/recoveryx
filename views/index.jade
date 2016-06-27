@@ -1,6 +1,7 @@
 extends layout
 
 block content
-  div#work !{JSON.stringify(work)}
   #react-container
+  script.
+    var workData = !{JSON.stringify(work)}
   script(src='/build/main.js')
