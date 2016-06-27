@@ -1,3 +1,5 @@
+/* global workData */
+
 var React = require('react'),
     Actions = require('../../src/actions/Actions'),
     Store = require('../../src/stores/Store');
@@ -98,7 +100,7 @@ var TestComponent = React.createClass({
           <RaisedButton
             label="Super Secret Password"
             primary={true}
-            onTouchTap={this.log}
+            onTouchTap={this.handleTouchTap}
           />
 
           <Dialog
