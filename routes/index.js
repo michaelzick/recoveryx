@@ -25,7 +25,7 @@ router.get('/', function(req, res) {
   });
 
   res.render('index', {
-    title: 'Main',
+    title: 'Michael',
     work: work
   });
 });

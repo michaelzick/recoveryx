@@ -4,13 +4,15 @@ var React = require('react'),
 
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import RaisedButton from 'material-ui/RaisedButton';
-import {blueGrey400} from 'material-ui/styles/colors';
-import {deepOrange500} from 'material-ui/styles/colors';
-import Dialog from 'material-ui/Dialog';
-import FlatButton from 'material-ui/FlatButton';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+import {blueGrey400} from 'material-ui/styles/colors';
 import AppBar from 'material-ui/AppBar';
+import {GridList, GridTile} from 'material-ui/GridList';
+import IconButton from 'material-ui/IconButton';
+import Subheader from 'material-ui/Subheader';
+import StarBorder from 'material-ui/svg-icons/toggle/star-border';
+import FlatButton from 'material-ui/FlatButton';
+import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
@@ -22,13 +24,28 @@ const styles = {
   },
   appBar: {
     backgroundColor: blueGrey400
+  },
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+  },
+  gridList: {
+    width: 500,
+    height: 500,
+    overflowY: 'auto',
+    marginBottom: 24,
+  },
+  card: {
+    maxWidth: 500,
+    float: 'left'
   }
 };
 
 const muiTheme = getMuiTheme({
-  palette: {
-    accent1Color: deepOrange500,
-  },
+  // palette: {
+  //   accent1Color: deepOrange500,
+  // },
 });
 
 var ShowData = React.createClass({
@@ -42,54 +59,59 @@ var ShowData = React.createClass({
               onLeftIconButtonTouchTap = {this.menuClick}
               style={styles.appBar}
           />
-          <ul className="thumbnails">
-              {this.props.dataFeed.map(function(data, i) {
-                  var newLine = "",
-                      fancyBox = "",
-                      targetBlank = "",
-                      isIframe = "",
-                      hasRole = "";
+          <div style={styles.root}>
+            {this.props.dataFeed.map(function(data, i) {
+                var newLine = "",
+                    fancyBox = "",
+                    targetBlank = "",
+                    isIframe = "",
+                    hasRole = "";
 
-                  if (data.proj_is_url == true) {
-                      var fancyBox = "";
-                      var targetBlank = "_blank";
-                  } else {
-                      fancyBox = "fancybox";
-                  }
-                  if (data.proj_new_line == true) {
-                      var newLine = "thumb-new-line";
-                  } else {
-                      newLine = "";
-                  }
-                  if (data.proj_is_iframe == true) {
-                      var isIframe = "iframe";
-                  } else {
-                      isIframe = "";
-                  }
-                  if (data.proj_type == "pics") {
-                      var hasRole = "";
-                  } else {
-                      hasRole = "Role: ";
-                  }
+                if (data.proj_is_url == true) {
+                    var fancyBox = "";
+                    var targetBlank = "_blank";
+                } else {
+                    fancyBox = "fancybox";
+                }
+                if (data.proj_new_line == true) {
+                    var newLine = "thumb-new-line";
+                } else {
+                    newLine = "";
+                }
+                if (data.proj_is_iframe == true) {
+                    var isIframe = "iframe";
+                } else {
+                    isIframe = "";
+                }
+                if (data.proj_type == "pics") {
+                    var hasRole = "";
+                } else {
+                    hasRole = "Role: ";
+                }
 
-                  return (
-                      <li key={i} className={newLine + " span3"}>
-                          <a href={data.proj_link_0}
-                              className={fancyBox + " thumbnail"}
-                              target={targetBlank}
-                              data-fancybox-type={isIframe}
-                              rel={data.proj_rel}
-                              title={data.proj_title + "</br>" + data.proj_role}>
-                              <img src={data.proj_thumb}/>
-                          </a>
-                          <div className="caption">
-                              <h2>{data.proj_header}</h2>
-                              <h3 className="lato description">{data.proj_desc}</h3>
-                          </div>
-                      </li>
-                  );
+                return (
+                  <Card style={styles.card}>
+                    <CardHeader
+                      title={data.proj_title}
+                      avatar="http://lorempixel.com/100/100/nature/"
+                    />
+                    <CardMedia
+                      overlay={<CardTitle title={data.proj_title}/>}
+                    >
+                      <img src="http://lorempixel.com/600/337/nature/" />
+                    </CardMedia>
+                    <CardTitle/>
+                    <CardText>
+                      {data.proj_role}
+                    </CardText>
+                    <CardActions>
+                      <FlatButton label="Action1" />
+                      <FlatButton label="Action2" />
+                    </CardActions>
+                  </Card>
+                );
               })}
-          </ul>
+          </div>
         </div>
       </MuiThemeProvider>
   )}
