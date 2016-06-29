@@ -99,22 +99,16 @@ var ShowData = React.createClass({
               onLeftIconButtonTouchTap = {this.menuClick}
               style={styles.appBar}
           />
+          <Dialog
+              open={this.state.open}
+              title="Work"
+              actions={standardActions}
+              onRequestClose={this.handleRequestClose}
+            >
+            Should be dynamic.
+          </Dialog>
           <div style={styles.root}>
-            <Dialog
-                open={this.state.open}
-                title="Super Secret Password"
-                actions={standardActions}
-                onRequestClose={this.handleRequestClose}
-              >
-              1-2-3-4-5
-            </Dialog>
             {this.props.dataFeed.map(function(data, i) {
-                var newLine = "",
-                    fancyBox = "",
-                    targetBlank = "",
-                    isIframe = "",
-                    hasRole = "";
-
                 if (data.proj_is_url == true) {
                     var fancyBox = "";
                     var targetBlank = "_blank";
@@ -158,13 +152,13 @@ var ShowData = React.createClass({
                         {data.proj_role}
                       </CardText>
                       <CardActions>
-                        <FlatButton label="Action1" />
+                        <FlatButton label="Action1" onTouchTap={this.handleTouchTap}/>
                         <FlatButton label="Action2" />
                       </CardActions>
                     </Card>
                   );
                 }
-              })}
+              }.bind(this))}
           </div>
         </div>
       </MuiThemeProvider>
