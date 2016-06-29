@@ -13,6 +13,7 @@ import Subheader from 'material-ui/Subheader';
 import StarBorder from 'material-ui/svg-icons/toggle/star-border';
 import FlatButton from 'material-ui/FlatButton';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import Dialog from 'material-ui/Dialog';
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
@@ -49,7 +50,46 @@ const muiTheme = getMuiTheme({
 });
 
 var ShowData = React.createClass({
+  state: {
+    open: false,
+  },
+
+  handleRequestClose: function() {
+    this.setState({
+      open: false,
+    });
+  },
+
+  handleTouchTap: function() {
+    this.setState({
+      open: true,
+    });
+  },
+
+  getInitialState: function() {
+    return Store.get();
+  },
+
+  componentDidMount: function() {
+    Store.addListener('change', this.changeEventHandler);
+  },
+
+  changeEventHandler: function() {
+    this.setState(Store.get());
+  },
+
+  handleChange: function(event) {
+    Actions.set(event.target.value);
+  },
+
   render: function() {
+    const standardActions = (
+      <FlatButton
+        label="Ok"
+        primary={true}
+        onTouchTap={this.handleRequestClose}
+      />
+    );
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
       	<div style={styles.container}>
@@ -60,6 +100,14 @@ var ShowData = React.createClass({
               style={styles.appBar}
           />
           <div style={styles.root}>
+            <Dialog
+                open={this.state.open}
+                title="Super Secret Password"
+                actions={standardActions}
+                onRequestClose={this.handleRequestClose}
+              >
+              1-2-3-4-5
+            </Dialog>
             {this.props.dataFeed.map(function(data, i) {
                 var newLine = "",
                     fancyBox = "",
@@ -89,27 +137,33 @@ var ShowData = React.createClass({
                     hasRole = "Role: ";
                 }
 
-                return (
-                  <Card style={styles.card}>
-                    <CardHeader
-                      title={data.proj_title}
-                      avatar="http://lorempixel.com/100/100/nature/"
-                    />
-                    <CardMedia
-                      overlay={<CardTitle title={data.proj_title}/>}
-                    >
-                      <img src="http://lorempixel.com/600/337/nature/" />
-                    </CardMedia>
-                    <CardTitle/>
-                    <CardText>
-                      {data.proj_role}
-                    </CardText>
-                    <CardActions>
-                      <FlatButton label="Action1" />
-                      <FlatButton label="Action2" />
-                    </CardActions>
-                  </Card>
-                );
+                if (data.proj_title === 'Seon & Me' ||
+                  data.proj_title === 'Blaise' ||
+                  data.proj_title === 'Eden') {
+                  return;
+                } else {
+                  return (
+                    <Card style={styles.card}>
+                      <CardHeader
+                        title={data.proj_title}
+                        avatar="http://lorempixel.com/100/100/animals/"
+                      />
+                      <CardMedia
+                        overlay={<CardTitle title={data.proj_title}/>}
+                      >
+                        <img src="http://lorempixel.com/600/337/animals/" />
+                      </CardMedia>
+                      <CardTitle/>
+                      <CardText>
+                        {data.proj_role}
+                      </CardText>
+                      <CardActions>
+                        <FlatButton label="Action1" />
+                        <FlatButton label="Action2" />
+                      </CardActions>
+                    </Card>
+                  );
+                }
               })}
           </div>
         </div>
