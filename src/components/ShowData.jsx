@@ -51,7 +51,7 @@ const muiTheme = getMuiTheme({
 
 var ShowData = React.createClass({
   state: {
-    open: false,
+    open: false
   },
 
   handleRequestClose: function() {
@@ -60,9 +60,10 @@ var ShowData = React.createClass({
     });
   },
 
-  handleTouchTap: function() {
+  handleTouchTap: function(text) {
     this.setState({
       open: true,
+      dialogueText: text
     });
   },
 
@@ -78,8 +79,8 @@ var ShowData = React.createClass({
     this.setState(Store.get());
   },
 
-  handleChange: function(event) {
-    Actions.set(event.target.value);
+  handleChange: function() {
+    Actions.set(this.state.value);
   },
 
   render: function() {
@@ -100,38 +101,19 @@ var ShowData = React.createClass({
               style={styles.appBar}
           />
           <Dialog
+              className='dialogue'
               open={this.state.open}
               title="Work"
               actions={standardActions}
               onRequestClose={this.handleRequestClose}
             >
-            Should be dynamic.
+            {this.state.dialogueText}
           </Dialog>
           <div style={styles.root}>
             {this.props.dataFeed.map(function(data, i) {
-                if (data.proj_is_url == true) {
-                    var fancyBox = "";
-                    var targetBlank = "_blank";
-                } else {
-                    fancyBox = "fancybox";
-                }
-                if (data.proj_new_line == true) {
-                    var newLine = "thumb-new-line";
-                } else {
-                    newLine = "";
-                }
-                if (data.proj_is_iframe == true) {
-                    var isIframe = "iframe";
-                } else {
-                    isIframe = "";
-                }
-                if (data.proj_type == "pics") {
-                    var hasRole = "";
-                } else {
-                    hasRole = "Role: ";
-                }
-
-                if (data.proj_title === 'Seon & Me' ||
+                if (data.proj_type === 'about' ||
+                  data.proj_type === 'skills' ||
+                  data.proj_title === 'Seon & Me' ||
                   data.proj_title === 'Blaise' ||
                   data.proj_title === 'Eden') {
                   return;
@@ -140,19 +122,22 @@ var ShowData = React.createClass({
                     <Card style={styles.card}>
                       <CardHeader
                         title={data.proj_title}
-                        avatar="http://lorempixel.com/100/100/animals/"
+                        avatar="http://lorempixel.com/100/100/nature/"
                       />
                       <CardMedia
                         overlay={<CardTitle title={data.proj_title}/>}
                       >
-                        <img src="http://lorempixel.com/600/337/animals/" />
+                        <img src="http://lorempixel.com/600/337/nature/"/>
                       </CardMedia>
                       <CardTitle/>
                       <CardText>
                         {data.proj_role}
                       </CardText>
                       <CardActions>
-                        <FlatButton label="Action1" onTouchTap={this.handleTouchTap}/>
+                        <FlatButton
+                          label="Action1"
+                          onTouchTap={this.handleTouchTap.bind(null, data.proj_role)}
+                        />
                         <FlatButton label="Action2" />
                       </CardActions>
                     </Card>
