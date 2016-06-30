@@ -7,10 +7,6 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import {blueGrey400} from 'material-ui/styles/colors';
 import AppBar from 'material-ui/AppBar';
-import {GridList, GridTile} from 'material-ui/GridList';
-import IconButton from 'material-ui/IconButton';
-import Subheader from 'material-ui/Subheader';
-import StarBorder from 'material-ui/svg-icons/toggle/star-border';
 import FlatButton from 'material-ui/FlatButton';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import Dialog from 'material-ui/Dialog';
@@ -30,6 +26,10 @@ const styles = {
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'space-around',
+  },
+  thumb: {
+    maxWidth: '300px',
+    minWidth: 0
   },
   gridList: {
     width: 500,
@@ -115,12 +115,12 @@ var ShowData = React.createClass({
                 <Card style={styles.card}>
                   <CardHeader
                     title={data.proj_title}
-                    avatar="http://lorempixel.com/100/100/nature/"
+                    avatar={data.proj_thumb}
                   />
                   <CardMedia
                     overlay={<CardTitle title={data.proj_title}/>}
                   >
-                    <img src="http://lorempixel.com/600/337/nature/"/>
+                    <img style={styles.thumb} src={data.proj_thumb}/>
                   </CardMedia>
                   <CardTitle/>
                   <CardText>
