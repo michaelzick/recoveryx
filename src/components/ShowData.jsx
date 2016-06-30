@@ -111,39 +111,31 @@ var ShowData = React.createClass({
           </Dialog>
           <div style={styles.root}>
             {this.props.dataFeed.map(function(data, i) {
-                if (data.proj_type === 'about' ||
-                  data.proj_type === 'skills' ||
-                  data.proj_title === 'Seon & Me' ||
-                  data.proj_title === 'Blaise' ||
-                  data.proj_title === 'Eden') {
-                  return;
-                } else {
-                  return (
-                    <Card style={styles.card}>
-                      <CardHeader
-                        title={data.proj_title}
-                        avatar="http://lorempixel.com/100/100/nature/"
-                      />
-                      <CardMedia
-                        overlay={<CardTitle title={data.proj_title}/>}
-                      >
-                        <img src="http://lorempixel.com/600/337/nature/"/>
-                      </CardMedia>
-                      <CardTitle/>
-                      <CardText>
-                        {data.proj_role}
-                      </CardText>
-                      <CardActions>
-                        <FlatButton
-                          label="Action1"
-                          onTouchTap={this.handleTouchTap.bind(null, data.proj_role)}
-                        />
-                        <FlatButton label="Action2" />
-                      </CardActions>
-                    </Card>
-                  );
-                }
-              }.bind(this))}
+              return (
+                <Card style={styles.card}>
+                  <CardHeader
+                    title={data.proj_title}
+                    avatar="http://lorempixel.com/100/100/nature/"
+                  />
+                  <CardMedia
+                    overlay={<CardTitle title={data.proj_title}/>}
+                  >
+                    <img src="http://lorempixel.com/600/337/nature/"/>
+                  </CardMedia>
+                  <CardTitle/>
+                  <CardText>
+                    {data.proj_role}
+                  </CardText>
+                  <CardActions>
+                    <FlatButton
+                      label="Action1"
+                      onTouchTap={this.handleTouchTap.bind(null, data.proj_role)}
+                    />
+                    <FlatButton label="Action2" />
+                  </CardActions>
+                </Card>
+              );
+            }.bind(this))}
           </div>
         </div>
       </MuiThemeProvider>
