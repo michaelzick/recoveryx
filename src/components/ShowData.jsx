@@ -29,7 +29,7 @@ const styles = {
   },
   thumb: {
     maxWidth: '300px',
-    minWidth: 0
+    minWidth: '100%'
   },
   gridList: {
     width: 500,
@@ -38,7 +38,7 @@ const styles = {
     marginBottom: 24,
   },
   card: {
-    maxWidth: 500,
+    width: 500,
     float: 'left'
   }
 };
