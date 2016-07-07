@@ -1,7 +1,6 @@
-var React = require('react'),
-    Actions = require('../../src/actions/Actions'),
-    Store = require('../../src/stores/Store');
-
+import React, {Component} from 'react';
+import Actions from '../../src/actions/Actions';
+import Store from '../../src/stores/Store';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -10,6 +9,11 @@ import AppBar from 'material-ui/AppBar';
 import FlatButton from 'material-ui/FlatButton';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import Dialog from 'material-ui/Dialog';
+import Drawer from 'material-ui/Drawer';
+import MenuItem from 'material-ui/MenuItem';
+import IconButton from 'material-ui/IconButton';
+import IconMenu from 'material-ui/IconMenu';
+import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
@@ -49,6 +53,49 @@ const muiTheme = getMuiTheme({
   // },
 });
 
+export default class AppBarDrawer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {open: false};
+  }
+
+  handleToggle() {
+    this.setState({
+      open: !this.state.open
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <AppBar
+      	    title="Title"
+            iconClassNameRight="muidocs-icon-navigation-expand-more"
+            onRightIconButtonTouchTap = {this.handleToggle.bind(this)}
+            style={styles.appBar}
+            // iconElementRight={
+            //   <IconMenu
+            //     iconButtonElement={
+            //       <IconButton><MoreVertIcon /></IconButton>
+            //     }
+            //     targetOrigin={{horizontal: 'right', vertical: 'top'}}
+            //     anchorOrigin={{horizontal: 'right', vertical: 'top'}}
+            //   >
+            //     <MenuItem primaryText="Refresh" />
+            //     <MenuItem primaryText="Help" />
+            //     <MenuItem primaryText="Sign out" />
+            //   </IconMenu>
+            // }
+        />
+        <Drawer open={this.state.open}>
+          <MenuItem>Menu Item</MenuItem>
+          <MenuItem>Menu Item 2</MenuItem>
+        </Drawer>
+      </div>
+    );
+  }
+}
+
 var ShowData = React.createClass({
   state: {
     open: false
@@ -65,6 +112,13 @@ var ShowData = React.createClass({
       open: true,
       dialogueText: text
     });
+  },
+
+  menuClick: function() {
+    this.setState({
+      open: !this.state.open,
+    });
+    console.log(this.state);
   },
 
   getInitialState: function() {
@@ -94,12 +148,7 @@ var ShowData = React.createClass({
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
       	<div style={styles.container}>
-      	  <AppBar
-        	    title="Title"
-              iconClassNameRight="muidocs-icon-navigation-expand-more"
-              onLeftIconButtonTouchTap = {this.menuClick}
-              style={styles.appBar}
-          />
+          <AppBarDrawer/>
           <Dialog
               className='dialogue'
               open={this.state.open}
