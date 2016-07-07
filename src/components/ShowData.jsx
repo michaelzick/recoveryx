@@ -71,21 +71,12 @@ export default class AppBarDrawer extends React.Component {
         <AppBar
       	    title="Title"
             iconClassNameRight="muidocs-icon-navigation-expand-more"
-            onRightIconButtonTouchTap = {this.handleToggle.bind(this)}
             style={styles.appBar}
-            // iconElementRight={
-            //   <IconMenu
-            //     iconButtonElement={
-            //       <IconButton><MoreVertIcon /></IconButton>
-            //     }
-            //     targetOrigin={{horizontal: 'right', vertical: 'top'}}
-            //     anchorOrigin={{horizontal: 'right', vertical: 'top'}}
-            //   >
-            //     <MenuItem primaryText="Refresh" />
-            //     <MenuItem primaryText="Help" />
-            //     <MenuItem primaryText="Sign out" />
-            //   </IconMenu>
-            // }
+            iconElementRight={
+              <IconButton
+                onTouchTap = {this.handleToggle.bind(this)}
+              ><MoreVertIcon /></IconButton>
+            }
         />
         <Drawer open={this.state.open}>
           <MenuItem>Menu Item</MenuItem>
