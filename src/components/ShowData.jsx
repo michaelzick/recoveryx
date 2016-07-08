@@ -65,6 +65,12 @@ export default class AppBarDrawer extends React.Component {
     });
   }
 
+  handleClose() {
+    this.setState({
+      open: !this.state.open
+    });
+  }
+
   render() {
     return (
       <div>
@@ -72,15 +78,19 @@ export default class AppBarDrawer extends React.Component {
       	    title="Title"
             iconClassNameRight="muidocs-icon-navigation-expand-more"
             style={styles.appBar}
+            onLeftIconButtonTouchTap = {this.handleToggle.bind(this)}
             iconElementRight={
-              <IconButton
-                onTouchTap = {this.handleToggle.bind(this)}
-              ><MoreVertIcon /></IconButton>
+              <IconButton><MoreVertIcon /></IconButton>
             }
         />
-        <Drawer open={this.state.open}>
-          <MenuItem>Menu Item</MenuItem>
-          <MenuItem>Menu Item 2</MenuItem>
+        <Drawer
+          docked={false}
+          width={200}
+          open={this.state.open}
+          onRequestChange={(open) => this.setState({open})}
+        >
+          <MenuItem onTouchTap={this.handleClose.bind(this)}>Menu Item</MenuItem>
+          <MenuItem onTouchTap={this.handleClose.bind(this)}>Menu Item 2</MenuItem>
         </Drawer>
       </div>
     );
