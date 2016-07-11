@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Actions from '../../src/actions/Actions';
 import Store from '../../src/stores/Store';
+import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -12,7 +13,6 @@ import Dialog from 'material-ui/Dialog';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
-import IconMenu from 'material-ui/IconMenu';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
 // Needed for onTouchTap
@@ -24,7 +24,7 @@ const styles = {
     textAlign: 'center'
   },
   appBar: {
-    backgroundColor: blueGrey400
+    // backgroundColor: blueGrey400
   },
   root: {
     display: 'flex',
@@ -46,12 +46,6 @@ const styles = {
     float: 'left'
   }
 };
-
-const muiTheme = getMuiTheme({
-  // palette: {
-  //   accent1Color: deepOrange500,
-  // },
-});
 
 export default class AppBarDrawer extends React.Component {
   constructor(props) {
@@ -147,7 +141,7 @@ var ShowData = React.createClass({
       />
     );
     return (
-      <MuiThemeProvider muiTheme={muiTheme}>
+      <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
       	<div style={styles.container}>
           <AppBarDrawer/>
           <Dialog
