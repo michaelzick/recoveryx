@@ -5,7 +5,8 @@ import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import {blueGrey400} from 'material-ui/styles/colors';
+import {cyanA100} from 'material-ui/styles/colors';
+import {cyanA200} from 'material-ui/styles/colors';
 import AppBar from 'material-ui/AppBar';
 import FlatButton from 'material-ui/FlatButton';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
@@ -24,7 +25,13 @@ const styles = {
     textAlign: 'center'
   },
   appBar: {
-    // backgroundColor: blueGrey400
+    backgroundColor: cyanA100,
+    header: {
+      background: cyanA200,
+      height: 72,
+      fontSize: 30,
+      lineHeight: 2.2
+    }
   },
   root: {
     display: 'flex',
@@ -32,17 +39,17 @@ const styles = {
     justifyContent: 'space-around',
   },
   thumb: {
-    maxWidth: '300px',
+    maxWidth: '200px',
     minWidth: '100%'
   },
   gridList: {
-    width: 500,
-    height: 500,
+    width: 200,
+    height: 200,
     overflowY: 'auto',
     marginBottom: 24,
   },
   card: {
-    width: 500,
+    width: 200,
     float: 'left'
   }
 };
@@ -69,7 +76,6 @@ export default class AppBarDrawer extends React.Component {
     return (
       <div>
         <AppBar
-      	    title="Title"
             iconClassNameRight="muidocs-icon-navigation-expand-more"
             style={styles.appBar}
             onLeftIconButtonTouchTap = {this.handleToggle.bind(this)}
@@ -83,6 +89,7 @@ export default class AppBarDrawer extends React.Component {
           open={this.state.open}
           onRequestChange={(open) => this.setState({open})}
         >
+          <div className="drawer-header" style={styles.appBar.header}>Menu</div>
           <MenuItem onTouchTap={this.handleClose.bind(this)}>Menu Item</MenuItem>
           <MenuItem onTouchTap={this.handleClose.bind(this)}>Menu Item 2</MenuItem>
         </Drawer>
@@ -161,9 +168,7 @@ var ShowData = React.createClass({
                     title={data.proj_title}
                     avatar={data.proj_thumb}
                   />
-                  <CardMedia
-                    overlay={<CardTitle title={data.proj_title}/>}
-                  >
+                  <CardMedia>
                     <img style={styles.thumb} src={data.proj_thumb}/>
                   </CardMedia>
                   <CardTitle/>
