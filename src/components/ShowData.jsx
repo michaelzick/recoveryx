@@ -15,6 +15,7 @@ import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+import DropDownMenu from 'material-ui/DropDownMenu';
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
@@ -57,7 +58,10 @@ const styles = {
 export default class AppBarDrawer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {open: false};
+    this.state = {
+      open: false,
+      value: 1
+    };
   }
 
   handleToggle() {
@@ -72,6 +76,10 @@ export default class AppBarDrawer extends React.Component {
     });
   }
 
+  handleChange(event, index, value) {
+    this.setState({value});
+  }
+
   render() {
     return (
       <div>
@@ -80,7 +88,7 @@ export default class AppBarDrawer extends React.Component {
             style={styles.appBar}
             onLeftIconButtonTouchTap = {this.handleToggle.bind(this)}
             iconElementRight={
-              <IconButton><MoreVertIcon /></IconButton>
+              <IconButton><MoreVertIcon/></IconButton>
             }
         />
         <Drawer
@@ -89,9 +97,18 @@ export default class AppBarDrawer extends React.Component {
           open={this.state.open}
           onRequestChange={(open) => this.setState({open})}
         >
-          <div className="drawer-header" style={styles.appBar.header}>Menu</div>
-          <MenuItem onTouchTap={this.handleClose.bind(this)}>Menu Item</MenuItem>
-          <MenuItem onTouchTap={this.handleClose.bind(this)}>Menu Item 2</MenuItem>
+          <div className="drawer-header" style={styles.appBar.header}>SoS</div>
+          <MenuItem onTouchTap={this.handleClose.bind(this)}>Surfing</MenuItem>
+          <MenuItem onTouchTap={this.handleClose.bind(this)}>Skating</MenuItem>
+          <MenuItem onTouchTap={this.handleClose.bind(this)}>Snowboarding</MenuItem>
+          <MenuItem onTouchTap={this.handleClose.bind(this)}>Skiing</MenuItem>
+          <DropDownMenu value={this.state.value}>
+            <MenuItem value={1} primaryText="Other" />
+            <MenuItem value={2} onTouchTap={this.handleClose.bind(this)} primaryText="Running" />
+            <MenuItem value={3} onTouchTap={this.handleClose.bind(this)} primaryText="Hiking" />
+            <MenuItem value={4} onTouchTap={this.handleClose.bind(this)} primaryText="Swimming" />
+            <MenuItem value={5} onTouchTap={this.handleClose.bind(this)} primaryText="Add a sport" />
+          </DropDownMenu>
         </Drawer>
       </div>
     );
