@@ -29,9 +29,9 @@ const styles = {
     backgroundColor: cyanA100,
     header: {
       background: cyanA200,
-      height: 72,
+      height: 90,
       fontSize: 30,
-      lineHeight: 2.2
+      lineHeight: 3
     }
   },
   root: {
