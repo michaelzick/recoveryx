@@ -84,12 +84,9 @@ export default class AppBarDrawer extends React.Component {
     return (
       <div>
         <AppBar
-            iconClassNameRight="muidocs-icon-navigation-expand-more"
-            style={styles.appBar}
-            onLeftIconButtonTouchTap = {this.handleToggle.bind(this)}
-            iconElementRight={
-              <IconButton><MoreVertIcon/></IconButton>
-            }
+          iconClassNameRight="muidocs-icon-navigation-expand-more"
+          style={styles.appBar}
+          onLeftIconButtonTouchTap = {this.handleToggle.bind(this)}
         />
         <Drawer
           docked={false}
@@ -165,44 +162,10 @@ var ShowData = React.createClass({
       />
     );
     return (
-      <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+      <MuiThemeProvider muiTheme={getMuiTheme()}>
       	<div style={styles.container}>
           <AppBarDrawer/>
-          <Dialog
-              className='dialogue'
-              open={this.state.open}
-              title="Work"
-              actions={standardActions}
-              onRequestClose={this.handleRequestClose}
-            >
-            {this.state.dialogueText}
-          </Dialog>
-          <div style={styles.root}>
-            {this.props.dataFeed.map(function(data, i) {
-              return (
-                <Card style={styles.card}>
-                  <CardHeader
-                    title={data.proj_title}
-                    avatar={data.proj_thumb}
-                  />
-                  <CardMedia>
-                    <img style={styles.thumb} src={data.proj_thumb}/>
-                  </CardMedia>
-                  <CardTitle/>
-                  <CardText>
-                    {data.proj_role}
-                  </CardText>
-                  <CardActions>
-                    <FlatButton
-                      label="Action1"
-                      onTouchTap={this.handleTouchTap.bind(null, data.proj_role)}
-                    />
-                    <FlatButton label="Action2" />
-                  </CardActions>
-                </Card>
-              );
-            }.bind(this))}
-          </div>
+
         </div>
       </MuiThemeProvider>
   )}
