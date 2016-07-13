@@ -6,7 +6,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import {cyanA100} from 'material-ui/styles/colors';
-import {cyanA200} from 'material-ui/styles/colors';
+import {cyan400} from 'material-ui/styles/colors';
 import AppBar from 'material-ui/AppBar';
 import FlatButton from 'material-ui/FlatButton';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
@@ -28,8 +28,9 @@ const styles = {
   appBar: {
     backgroundColor: 'transparent',
     position: 'absolute',
+    boxShadow: 'none',
     header: {
-      background: cyanA200,
+      background: cyanA100,
       height: 90,
       fontSize: 30,
       lineHeight: 3,
