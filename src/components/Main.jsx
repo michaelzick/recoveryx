@@ -26,12 +26,13 @@ const styles = {
     textAlign: 'center'
   },
   appBar: {
-    backgroundColor: cyanA100,
+    backgroundColor: 'transparent',
+    position: 'absolute',
     header: {
       background: cyanA200,
       height: 90,
       fontSize: 30,
-      lineHeight: 3
+      lineHeight: 3,
     }
   },
   root: {
@@ -112,7 +113,7 @@ export default class AppBarDrawer extends React.Component {
   }
 }
 
-var ShowData = React.createClass({
+var Main = React.createClass({
   state: {
     open: false
   },
@@ -165,10 +166,10 @@ var ShowData = React.createClass({
       <MuiThemeProvider muiTheme={getMuiTheme()}>
       	<div style={styles.container}>
           <AppBarDrawer/>
-
+          <div className="hero"></div>
         </div>
       </MuiThemeProvider>
   )}
 });
 
-module.exports = ShowData;
+module.exports = Main;
