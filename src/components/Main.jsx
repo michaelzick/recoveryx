@@ -48,7 +48,37 @@ const styles = {
     textAlign: 'center',
     display: 'inline-block',
   },
+  otherMenu: {
+    color: 'rgb(0, 151, 167)'
+  }
 };
+
+export default class Menu extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: 1
+    };
+  }
+
+  render() {
+    return (
+      <div>
+        <FlatButton label="Surfing" primary={true}/>
+        <FlatButton label="Skating" primary={true}/>
+        <FlatButton label="Snowboarding" primary={true}/>
+        <FlatButton label="Skiing" primary={true}/>
+        <DropDownMenu labelStyle={styles.otherMenu} value={this.state.value}>
+          <MenuItem value={1} primaryText="Other" />
+          <MenuItem value={2} primaryText="Running" />
+          <MenuItem value={3} primaryText="Hiking" />
+          <MenuItem value={4} primaryText="Swimming" />
+          <MenuItem value={5} primaryText="Add a sport" />
+        </DropDownMenu>
+      </div>
+    );
+  }
+}
 
 export default class AppBarDrawer extends React.Component {
   constructor(props) {
@@ -82,7 +112,10 @@ export default class AppBarDrawer extends React.Component {
           iconClassNameRight="muidocs-icon-navigation-expand-more"
           style={styles.appBar}
           onLeftIconButtonTouchTap = {this.handleToggle.bind(this)}
-        />
+        >
+          <Menu/>
+        </AppBar>
+
         <Drawer
           docked={false}
           width={200}
