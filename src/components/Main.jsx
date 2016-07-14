@@ -26,7 +26,7 @@ const styles = {
     textAlign: 'center'
   },
   appBar: {
-    backgroundColor: 'transparent',
+    backgroundColor: 'rgba(255, 255, 255, 0.82)',
     position: 'absolute',
     boxShadow: 'none',
     header: {
@@ -164,7 +164,7 @@ var Main = React.createClass({
       />
     );
     return (
-      <MuiThemeProvider muiTheme={getMuiTheme()}>
+      <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
       	<div style={styles.container}>
           <AppBarDrawer/>
           <div className="hero"></div>
