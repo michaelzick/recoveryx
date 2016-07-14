@@ -16,6 +16,7 @@ import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import DropDownMenu from 'material-ui/DropDownMenu';
+import Paper from 'material-ui/Paper';
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
@@ -36,25 +37,17 @@ const styles = {
       lineHeight: 3,
     }
   },
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
-  },
-  thumb: {
-    maxWidth: '200px',
-    minWidth: '100%'
-  },
-  gridList: {
-    width: 200,
-    height: 200,
-    overflowY: 'auto',
-    marginBottom: 24,
-  },
   card: {
     width: 200,
     float: 'left'
-  }
+  },
+  circlePaper: {
+    height: 200,
+    width: 200,
+    margin: 20,
+    textAlign: 'center',
+    display: 'inline-block',
+  },
 };
 
 export default class AppBarDrawer extends React.Component {
@@ -168,6 +161,11 @@ var Main = React.createClass({
       	<div style={styles.container}>
           <AppBarDrawer/>
           <div className="hero"></div>
+          <div className="circles-block">
+            <Paper className="surfboard-card" style={styles.circlePaper} zDepth={2} circle={true} />
+            <Paper style={styles.circlePaper} zDepth={2} circle={true} />
+            <Paper style={styles.circlePaper} zDepth={2} circle={true} />
+          </div>
         </div>
       </MuiThemeProvider>
   )}

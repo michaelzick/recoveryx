@@ -11,3 +11,13 @@ a {
     background: url('../img/bg/blue-wave-wallpaper.jpg') 0 0 no-repeat;
     height: 550px;
 }
+
+.circles-block {
+    margin-top: -115px;
+}
+
+.surfboard-card {
+    background: url('../img/misc/surfboard.jpg') 0 0 no-repeat;
+    background-position: -60px;
+    background-size: 140%;
+}
