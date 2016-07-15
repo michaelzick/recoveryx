@@ -27,7 +27,7 @@ const styles = {
     textAlign: 'center'
   },
   appBar: {
-    backgroundColor: 'rgba(255, 255, 255, 0.82)',
+    backgroundColor: 'rgba(0, 0, 0, 0.66)',
     position: 'absolute',
     boxShadow: 'none',
     header: {
@@ -49,7 +49,15 @@ const styles = {
     display: 'inline-block',
   },
   otherMenu: {
-    color: 'rgb(0, 151, 167)'
+    color: 'rgb(0, 151, 167)',
+    textTransform: 'uppercase',
+    fontSize: 14,
+    fontWeight: 600,
+    paddingLeft: 7,
+    top: 1,
+    underline: {
+      display: 'none'
+    }
   }
 };
 
@@ -68,7 +76,11 @@ export default class Menu extends React.Component {
         <FlatButton label="Skating" primary={true}/>
         <FlatButton label="Snowboarding" primary={true}/>
         <FlatButton label="Skiing" primary={true}/>
-        <DropDownMenu labelStyle={styles.otherMenu} value={this.state.value}>
+        <DropDownMenu
+          labelStyle={styles.otherMenu}
+          value={this.state.value}
+          underlineStyle={styles.otherMenu.underline}
+        >
           <MenuItem value={1} primaryText="Other" />
           <MenuItem value={2} primaryText="Running" />
           <MenuItem value={3} primaryText="Hiking" />
@@ -182,15 +194,8 @@ var Main = React.createClass({
   },
 
   render: function() {
-    const standardActions = (
-      <FlatButton
-        label="Ok"
-        primary={true}
-        onTouchTap={this.handleRequestClose}
-      />
-    );
     return (
-      <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+      <MuiThemeProvider muiTheme={getMuiTheme()}>
       	<div style={styles.container}>
           <AppBarDrawer/>
           <div className="hero"></div>
