@@ -201,9 +201,11 @@ var Main = React.createClass({
           <div className="hero"></div>
           <div className="circles-block">
             <Paper className="surfboard-card" style={styles.circlePaper} zDepth={2} circle={true} />
-            <Paper style={styles.circlePaper} zDepth={2} circle={true} />
-            <Paper style={styles.circlePaper} zDepth={2} circle={true} />
+            <Paper className="cleanup-card" style={styles.circlePaper} zDepth={2} circle={true} />
+            <Paper className="twelve-card" style={styles.circlePaper} zDepth={2} circle={true} />
           </div>
+
+          <div className="main-block"></div>
         </div>
       </MuiThemeProvider>
   )}

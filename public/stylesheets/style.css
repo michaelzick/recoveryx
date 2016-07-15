@@ -22,7 +22,25 @@ a {
     background-size: 140%;
 }
 
+.cleanup-card {
+    background: url('../img/misc/beach-cleanup.jpg') 0 0 no-repeat;
+    background-position: -60px;
+    background-size: 140%;
+}
+
+.twelve-card {
+    background: url('../img/misc/12.jpg') 0 0 no-repeat;
+    background-position: -2px;
+    background-size: 105%;
+}
+
 .drawer-header {
     background: url('../img/misc/sos-bottle.jpg') 0 0 no-repeat;
     background-size: 100%;
+}
+
+.main-block {
+    height: 500px;
+    background: #128298;
+    margin-top: -128px;
 }
