@@ -31,7 +31,7 @@ const styles = {
     position: 'absolute',
     boxShadow: 'none',
     header: {
-      background: cyanA100,
+      // background: 'url("/',
       height: 90,
       fontSize: 30,
       lineHeight: 3,
@@ -134,7 +134,7 @@ export default class AppBarDrawer extends React.Component {
           open={this.state.open}
           onRequestChange={(open) => this.setState({open})}
         >
-          <div className="drawer-header" style={styles.appBar.header}>SoS</div>
+          <div className="drawer-header" style={styles.appBar.header}></div>
           <MenuItem onTouchTap={this.handleClose.bind(this)}>Surfing</MenuItem>
           <MenuItem onTouchTap={this.handleClose.bind(this)}>Skating</MenuItem>
           <MenuItem onTouchTap={this.handleClose.bind(this)}>Snowboarding</MenuItem>

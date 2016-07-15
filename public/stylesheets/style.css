@@ -21,3 +21,8 @@ a {
     background-position: -60px;
     background-size: 140%;
 }
+
+.drawer-header {
+    background: url('../img/misc/sos-bottle.jpg') 0 0 no-repeat;
+    background-size: 100%;
+}
