@@ -44,3 +44,21 @@ a {
     background: #128298;
     margin-top: -128px;
 }
+
+.app-bar-burger {
+    background: url('../img/icons/ic_view_list_white_24px.svg') 0 0 no-repeat;
+    width: 44px;
+    height: 44px;
+    background-size: 100%;
+}
+
+@media only screen and (max-width: 767px) {
+    .dt-menu {
+        display: none;
+    }
+
+    .app-bar-burger,
+    .app-bar button {
+        display: block !important;
+    }
+}

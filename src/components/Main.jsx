@@ -31,10 +31,13 @@ const styles = {
     position: 'absolute',
     boxShadow: 'none',
     header: {
-      // background: 'url("/',
       height: 90,
       fontSize: 30,
       lineHeight: 3,
+    },
+    iconLeft: {
+      padding: 0,
+      display: 'none'
     }
   },
   card: {
@@ -71,7 +74,7 @@ export default class Menu extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="dt-menu">
         <FlatButton label="Surfing" primary={true}/>
         <FlatButton label="Skating" primary={true}/>
         <FlatButton label="Snowboarding" primary={true}/>
@@ -121,9 +124,11 @@ export default class AppBarDrawer extends React.Component {
     return (
       <div>
         <AppBar
-          iconClassNameRight="muidocs-icon-navigation-expand-more"
           style={styles.appBar}
-          onLeftIconButtonTouchTap = {this.handleToggle.bind(this)}
+          onLeftIconButtonTouchTap={this.handleToggle.bind(this)}
+          iconClassNameLeft="app-bar-burger"
+          className="app-bar"
+          iconStyleLeft={styles.appBar.iconLeft}
         >
           <Menu/>
         </AppBar>
