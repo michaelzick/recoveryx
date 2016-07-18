@@ -47,8 +47,8 @@ a {
 
 .app-bar-burger {
     background: url('../img/icons/ic_view_list_white_24px.svg') 0 0 no-repeat;
-    width: 44px;
-    height: 44px;
+    width: 34px;
+    height: 34px;
     background-size: 100%;
 }
 
@@ -60,5 +60,13 @@ a {
     .app-bar-burger,
     .app-bar button {
         display: block !important;
+    }
+
+    .main-card {
+        display: none !important;
+    }
+
+    .main-block {
+        margin-top: 0;
     }
 }
