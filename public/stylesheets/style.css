@@ -46,11 +46,17 @@ a {
 }
 
 .app-bar-burger {
-    background: url('../img/icons/ic_view_list_white_24px.svg') 0 0 no-repeat;
+    background: url('../img/icons/ic_menu_white_24px.svg') 0 0 no-repeat;
     width: 34px;
     height: 34px;
     background-size: 100%;
 }
+
+/*.main-card {*/
+/*    -moz-transition: width 2s, height 2s, background-color 2s, -webkit-transform 2s;*/
+/*    -webkit-transition: width 2s, height 2s, background-color 2s, -webkit-transform 2s;*/
+/*    transition: width 2s, height 2s, background-color 2s, transform 2s;*/
+/*}*/
 
 @media only screen and (max-width: 767px) {
     .dt-menu {
@@ -62,11 +68,17 @@ a {
         display: block !important;
     }
 
-    .main-card {
-        display: none !important;
-    }
-
     .main-block {
         margin-top: 0;
+    }
+
+    .circles-block {
+        margin-top: -143px;
+        position: absolute;
+    }
+
+    .main-card {
+        height: 100px !important;
+        width: 100px !important;
     }
 }
