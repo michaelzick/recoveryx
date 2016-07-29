@@ -7,13 +7,34 @@ a {
     color: #00B7FF;
 }
 
+.clear {
+    clear: both;
+    float: none;
+}
+
 .hero {
     background: url('../img/bg/blue-wave-wallpaper.jpg') 0 0 no-repeat;
     height: 550px;
+    position: relative;
+}
+
+.hero-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-title {
+    margin-top: 340px;
+    color: #FFF;
+    font-size: 50px;
 }
 
 .circles-block {
     margin-top: -115px;
+    position: relative;
 }
 
 .surfboard-card {

@@ -203,7 +203,15 @@ var Main = React.createClass({
       <MuiThemeProvider muiTheme={getMuiTheme()}>
       	<div style={styles.container}>
           <AppBarDrawer/>
-          <div className="hero"></div>
+
+          <div className="clear"></div>
+
+          <div className="hero">
+            <div className="hero-inner">
+              <h1 className="hero-title">Sports Over Substance</h1>
+            </div>
+          </div>
+
           <div className="circles-block">
             <Paper className="surfboard-card main-card" style={styles.circlePaper} zDepth={2} circle={true} />
             <Paper className="cleanup-card main-card" style={styles.circlePaper} zDepth={2} circle={true} />
