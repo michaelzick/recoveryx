@@ -27,14 +27,21 @@ a {
 }
 
 .hero-title {
-    margin-top: 340px;
+    margin-top: 210px;
     color: #FFF;
-    font-size: 50px;
+    font-size: 110px;
 }
 
 .circles-block {
-    margin-top: -115px;
-    position: relative;
+    position: absolute;
+    top: 430px;
+    width: 100%;
+}
+
+.circle-block {
+    display: inline-block;
+    color: #FFF;
+    font-size: 30px;
 }
 
 .surfboard-card {
@@ -63,7 +70,6 @@ a {
 .main-block {
     height: 500px;
     background: #128298;
-    margin-top: -128px;
 }
 
 .app-bar-burger {

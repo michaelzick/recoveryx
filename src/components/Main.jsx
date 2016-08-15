@@ -208,14 +208,25 @@ var Main = React.createClass({
 
           <div className="hero">
             <div className="hero-inner">
-              <h1 className="hero-title">Sports Over Substance</h1>
+              <h1 className="hero-title">RecoveryX</h1>
             </div>
           </div>
 
           <div className="circles-block">
-            <Paper className="surfboard-card main-card" style={styles.circlePaper} zDepth={2} circle={true} />
-            <Paper className="cleanup-card main-card" style={styles.circlePaper} zDepth={2} circle={true} />
-            <Paper className="twelve-card main-card" style={styles.circlePaper} zDepth={2} circle={true} />
+            <div className="circle-block">
+              <Paper className="surfboard-card main-card" style={styles.circlePaper} zDepth={2} circle={true} />
+              <div>Sports</div>
+            </div>
+
+            <div className="circle-block">
+              <Paper className="cleanup-card main-card" style={styles.circlePaper} zDepth={2} circle={true} />
+              <div>Service</div>
+            </div>
+
+            <div className="circle-block">
+              <Paper className="twelve-card main-card" style={styles.circlePaper} zDepth={2} circle={true} />
+              <div>Steps</div>
+            </div>
           </div>
 
           <div className="main-block"></div>
