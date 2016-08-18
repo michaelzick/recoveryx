@@ -108,4 +108,21 @@ a {
         height: 100px !important;
         width: 100px !important;
     }
+
+    .hero-title {
+        margin-top: 90px;
+        font-size: 50px;
+    }
+
+    .surfboard-card {
+        background-position: -30px;
+    }
+
+    .cleanup-card {
+        background-position: -39px;
+    }
+
+    .circles-block {
+        margin-top: -270px;
+    }
 }
