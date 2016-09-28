@@ -79,6 +79,24 @@ a {
     background-size: 100%;
 }
 
+.example-enter {
+  opacity: 0.01;
+}
+
+.example-enter.example-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.example-leave {
+  opacity: 1;
+}
+
+.example-leave.example-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+
 /*.main-card {*/
 /*    -moz-transition: width 2s, height 2s, background-color 2s, -webkit-transform 2s;*/
 /*    -webkit-transition: width 2s, height 2s, background-color 2s, -webkit-transform 2s;*/
@@ -115,7 +133,7 @@ a {
     }
 
     .surfboard-card {
-        background-position: -30px;
+        background-position: -24px;
     }
 
     .cleanup-card {

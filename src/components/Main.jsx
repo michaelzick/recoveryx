@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
 import Actions from '../../src/actions/Actions';
 import Store from '../../src/stores/Store';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
@@ -9,6 +10,7 @@ import {cyanA100} from 'material-ui/styles/colors';
 import {cyan400} from 'material-ui/styles/colors';
 import AppBar from 'material-ui/AppBar';
 import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import Dialog from 'material-ui/Dialog';
 import Drawer from 'material-ui/Drawer';
@@ -17,6 +19,7 @@ import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import Paper from 'material-ui/Paper';
+import ReactCSSTransitionGroup from 'react-addons-transition-group';
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
@@ -157,6 +160,56 @@ export default class AppBarDrawer extends React.Component {
   }
 }
 
+// export default class DialogExampleModal extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       open: false,
+//     };
+//   }
+
+//   handleOpen() {
+//     this.setState({
+//       open: true
+//     });
+//   }
+
+//   handleClose() {
+//     this.setState({
+//       open: false
+//     });
+//   }
+
+//   render() {
+//     const actions = [
+//       <FlatButton
+//         label="Cancel"
+//         primary={true}
+//         onTouchTap={this.handleClose}
+//       />,
+//       <FlatButton
+//         label="Submit"
+//         primary={true}
+//         disabled={true}
+//         onTouchTap={this.handleClose}
+//       />,
+//     ];
+
+//     return (
+//       <div>
+//         <Dialog
+//           title="Dialog With Actions"
+//           actions={actions}
+//           modal={true}
+//           open={this.state.open}
+//         >
+//           Only actions can close this dialog.
+//         </Dialog>
+//       </div>
+//     );
+//   }
+// }
+
 var Main = React.createClass({
   state: {
     open: false
@@ -165,13 +218,6 @@ var Main = React.createClass({
   handleRequestClose: function() {
     this.setState({
       open: false,
-    });
-  },
-
-  handleTouchTap: function(text) {
-    this.setState({
-      open: true,
-      dialogueText: text
     });
   },
 
@@ -186,23 +232,60 @@ var Main = React.createClass({
     return Store.get();
   },
 
-  componentDidMount: function() {
-    Store.addListener('change', this.changeEventHandler);
-  },
+  // componentDidMount: function() {
+  //   Store.addListener('onTouchTap', this.changeEventHandler);
+  //   var circles = ReactDOM.findDOMNode(this.refs.circles);
+  //   var circle = circles.getElementsByClassName("main-card");
+  //   console.log(circle[0]);
+  //   circle[0].addEventListener(this.handleTouchTap('yo'), function() {
+  //     console.log('transition');
+  //   });
+  // },
 
   changeEventHandler: function() {
     this.setState(Store.get());
+    console.log(Store);
   },
 
   handleChange: function() {
     Actions.set(this.state.value);
   },
 
+  handleToggle: function() {
+    this.setState({
+      open: !this.state.open
+    });
+  },
+
+  handleTouchTap: function(text) {
+    this.setState({
+      open: true,
+      dialogueText: text
+    });
+  },
+
   render: function() {
+    const standardActions = (
+      <FlatButton
+        label="Ok"
+        primary={true}
+        onTouchTap={this.handleRequestClose}
+      />
+    );
     return (
       <MuiThemeProvider muiTheme={getMuiTheme()}>
       	<div style={styles.container}>
           <AppBarDrawer/>
+
+          <Dialog
+              className='dialogue'
+              open={this.state.open}
+              title="Work"
+              actions={standardActions}
+              onRequestClose={this.handleRequestClose}
+            >
+            {this.state.dialogueText}
+          </Dialog>
 
           <div className="clear"></div>
 
@@ -212,21 +295,33 @@ var Main = React.createClass({
             </div>
           </div>
 
-          <div className="circles-block">
-            <div className="circle-block">
-              <Paper className="surfboard-card main-card" style={styles.circlePaper} zDepth={2} circle={true} />
-              <div>Sports</div>
-            </div>
+          <div className="circles-block" ref="circles">
+              <ReactCSSTransitionGroup
+                transitionName="example"
+                transitionEnterTimeout={500}
+                transitionLeaveTimeout={300}
+                transitionAppear={true}>
 
-            <div className="circle-block">
-              <Paper className="cleanup-card main-card" style={styles.circlePaper} zDepth={2} circle={true} />
-              <div>Service</div>
-            </div>
+                <div className="circle-block">
+                  <Paper
+                    className="surfboard-card main-card"
+                    onTouchTap={this.handleTouchTap.bind(null, 'blah')}
+                    style={styles.circlePaper} zDepth={2}
+                    circle={true}>
+                  </Paper>
+                  <div>Sports</div>
+                </div>
 
-            <div className="circle-block">
-              <Paper className="twelve-card main-card" style={styles.circlePaper} zDepth={2} circle={true} />
-              <div>Steps</div>
-            </div>
+                <div className="circle-block">
+                  <Paper className="cleanup-card main-card" key={2} style={styles.circlePaper} zDepth={2} circle={true} />
+                  <div>Service</div>
+                </div>
+
+                <div className="circle-block">
+                  <Paper className="twelve-card main-card" key={3} style={styles.circlePaper} zDepth={2} circle={true} />
+                  <div>Steps</div>
+                </div>
+              </ReactCSSTransitionGroup>
           </div>
 
           <div className="main-block"></div>
