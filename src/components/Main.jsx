@@ -53,6 +53,7 @@ const styles = {
     margin: 20,
     textAlign: 'center',
     display: 'inline-block',
+    cursor: 'pointer',
   },
   otherMenu: {
     color: 'rgb(0, 151, 167)',
@@ -75,10 +76,14 @@ export default class Menu extends React.Component {
     };
   }
 
+  goToPage(loc) {
+    window.location = loc;
+  }
+
   render() {
     return (
       <div className="dt-menu">
-        <FlatButton label="Surfing" primary={true}/>
+        <FlatButton onClick={this.goToPage.bind(null, '/surfing')} label="Surfing" primary={true}/>
         <FlatButton label="Skating" primary={true}/>
         <FlatButton label="Snowboarding" primary={true}/>
         <FlatButton label="Skiing" primary={true}/>
@@ -160,56 +165,6 @@ export default class AppBarDrawer extends React.Component {
   }
 }
 
-// export default class DialogExampleModal extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       open: false,
-//     };
-//   }
-
-//   handleOpen() {
-//     this.setState({
-//       open: true
-//     });
-//   }
-
-//   handleClose() {
-//     this.setState({
-//       open: false
-//     });
-//   }
-
-//   render() {
-//     const actions = [
-//       <FlatButton
-//         label="Cancel"
-//         primary={true}
-//         onTouchTap={this.handleClose}
-//       />,
-//       <FlatButton
-//         label="Submit"
-//         primary={true}
-//         disabled={true}
-//         onTouchTap={this.handleClose}
-//       />,
-//     ];
-
-//     return (
-//       <div>
-//         <Dialog
-//           title="Dialog With Actions"
-//           actions={actions}
-//           modal={true}
-//           open={this.state.open}
-//         >
-//           Only actions can close this dialog.
-//         </Dialog>
-//       </div>
-//     );
-//   }
-// }
-
 var Main = React.createClass({
   state: {
     open: false
@@ -225,7 +180,6 @@ var Main = React.createClass({
     this.setState({
       open: !this.state.open,
     });
-    console.log(this.state);
   },
 
   getInitialState: function() {
@@ -260,7 +214,7 @@ var Main = React.createClass({
   handleTouchTap: function(text) {
     this.setState({
       open: true,
-      dialogueText: text
+      dialogText: text
     });
   },
 
@@ -278,13 +232,13 @@ var Main = React.createClass({
           <AppBarDrawer/>
 
           <Dialog
-              className='dialogue'
+              className='dialog'
               open={this.state.open}
-              title="Work"
+              title="Sports"
               actions={standardActions}
               onRequestClose={this.handleRequestClose}
             >
-            {this.state.dialogueText}
+            {this.state.dialogText}
           </Dialog>
 
           <div className="clear"></div>
@@ -313,12 +267,22 @@ var Main = React.createClass({
                 </div>
 
                 <div className="circle-block">
-                  <Paper className="cleanup-card main-card" key={2} style={styles.circlePaper} zDepth={2} circle={true} />
+                  <Paper
+                    className="cleanup-card main-card"
+                    onTouchTap={this.handleTouchTap.bind(null, 'blah')}
+                    style={styles.circlePaper} zDepth={2}
+                    circle={true}>
+                  </Paper>
                   <div>Service</div>
                 </div>
 
                 <div className="circle-block">
-                  <Paper className="twelve-card main-card" key={3} style={styles.circlePaper} zDepth={2} circle={true} />
+                  <Paper
+                    className="twelve-card main-card"
+                    onTouchTap={this.handleTouchTap.bind(null, 'blah')}
+                    style={styles.circlePaper} zDepth={2}
+                    circle={true}>
+                  </Paper>
                   <div>Steps</div>
                 </div>
               </ReactCSSTransitionGroup>
