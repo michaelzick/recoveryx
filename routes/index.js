@@ -30,8 +30,10 @@ router.get('/', function(req, res) {
   });
 });
 
-router.get('/other', function(req, res) {
-  res.render('other', { title: 'Other' });
+router.get('/surfing', function(req, res) {
+  res.render('surfing', {
+    title: 'RecoveryX - Surfing'
+  });
 });
 
 module.exports = router;
