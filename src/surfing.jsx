@@ -1,6 +1,6 @@
 var React         = require('react'),
     ReactDOM      = require('react-dom'),
-    Main = require('./components/Main.jsx');
+    Main = require('./components/Surfing.jsx');
 
 ReactDOM.render(
   <Main/>,

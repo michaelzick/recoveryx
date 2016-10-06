@@ -83,6 +83,7 @@ a {
   opacity: 0.01;
 }
 
+/*transition group*/
 .example-enter.example-enter-active {
   opacity: 1;
   transition: opacity 500ms ease-in;
@@ -96,6 +97,16 @@ a {
   opacity: 0.01;
   transition: opacity 300ms ease-in;
 }
+
+.example-appear {
+  opacity: 0.01;
+}
+
+.example-appear.example-appear-active {
+  opacity: 1;
+  transition: opacity .5s ease-in;
+}
+/*end transition group*/
 
 /*.main-card {*/
 /*    -moz-transition: width 2s, height 2s, background-color 2s, -webkit-transform 2s;*/

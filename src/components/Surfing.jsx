@@ -165,7 +165,23 @@ export default class AppBarDrawer extends React.Component {
   }
 }
 
-var Main = React.createClass({
+const MainInfoCard = () => (
+  <Card>
+    <CardTitle title="Card title" subtitle="Card subtitle" />
+    <CardText>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
+      Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
+      Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
+    </CardText>
+    <CardActions>
+      <FlatButton label="Action1" />
+      <FlatButton label="Action2" />
+    </CardActions>
+  </Card>
+);
+
+var Surfing = React.createClass({
   state: {
     open: false
   },
@@ -245,41 +261,17 @@ var Main = React.createClass({
 
           <div className="hero">
             <div className="hero-inner">
-              <h1 className="hero-title">RecoveryX</h1>
+              <h1 className="hero-title">Surfing</h1>
             </div>
           </div>
 
-          <div className="circles-block" ref="circles">
-              <div className="circle-block">
-                <Paper
-                  className="surfboard-card main-card"
-                  onTouchTap={this.handleTouchTap.bind(null, 'blah')}
-                  style={styles.circlePaper} zDepth={2}
-                  circle={true}>
-                </Paper>
-                <div>Sports</div>
-              </div>
-
-              <div className="circle-block">
-                <Paper
-                  className="cleanup-card main-card"
-                  onTouchTap={this.handleTouchTap.bind(null, 'blah')}
-                  style={styles.circlePaper} zDepth={2}
-                  circle={true}>
-                </Paper>
-                <div>Service</div>
-              </div>
-
-              <div className="circle-block">
-                <Paper
-                  className="twelve-card main-card"
-                  onTouchTap={this.handleTouchTap.bind(null, 'blah')}
-                  style={styles.circlePaper} zDepth={2}
-                  circle={true}>
-                </Paper>
-                <div>Steps</div>
-              </div>
-          </div>
+          <ReactCSSTransitionGroup
+                transitionName="example"
+                transitionEnterTimeout={500}
+                transitionLeaveTimeout={300}
+                transitionAppear={true}>
+            <MainInfoCard/>
+          </ReactCSSTransitionGroup>
 
           <div className="main-block"></div>
         </div>
@@ -287,4 +279,4 @@ var Main = React.createClass({
   )}
 });
 
-module.exports = Main;
+module.exports = Surfing;
