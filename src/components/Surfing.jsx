@@ -69,7 +69,7 @@ export default class Menu extends React.Component {
   render() {
     return (
       <div className="dt-menu">
-        <FlatButton onClick={this.goToPage.bind(null, '/surfing')} label="Surfing" primary={true}/>
+        <FlatButton onClick={this.goToPage.bind(null, '/')} label="Home" primary={true}/>
         <FlatButton label="Skating" primary={true}/>
         <FlatButton label="Snowboarding" primary={true}/>
         <FlatButton label="Skiing" primary={true}/>
