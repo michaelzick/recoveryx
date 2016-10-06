@@ -1,6 +1,7 @@
 body {
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
     margin: 0;
+    background: #128298;
 }
 
 a {
@@ -69,7 +70,6 @@ a {
 
 .main-block {
     height: 500px;
-    background: #128298;
 }
 
 .app-bar-burger {
@@ -107,6 +107,11 @@ a {
   transition: opacity .5s ease-in;
 }
 /*end transition group*/
+
+.main-info-wrapper {
+    margin: 0 auto;
+    width: 90%;
+}
 
 /*.main-card {*/
 /*    -moz-transition: width 2s, height 2s, background-color 2s, -webkit-transform 2s;*/

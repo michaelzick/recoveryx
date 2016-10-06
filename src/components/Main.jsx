@@ -186,16 +186,6 @@ var Main = React.createClass({
     return Store.get();
   },
 
-  // componentDidMount: function() {
-  //   Store.addListener('onTouchTap', this.changeEventHandler);
-  //   var circles = ReactDOM.findDOMNode(this.refs.circles);
-  //   var circle = circles.getElementsByClassName("main-card");
-  //   console.log(circle[0]);
-  //   circle[0].addEventListener(this.handleTouchTap('yo'), function() {
-  //     console.log('transition');
-  //   });
-  // },
-
   changeEventHandler: function() {
     this.setState(Store.get());
     console.log(Store);
@@ -280,8 +270,6 @@ var Main = React.createClass({
                 <div>Steps</div>
               </div>
           </div>
-
-          <div className="main-block"></div>
         </div>
       </MuiThemeProvider>
   )}

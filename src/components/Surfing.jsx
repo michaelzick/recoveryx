@@ -2,23 +2,16 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import Actions from '../../src/actions/Actions';
 import Store from '../../src/stores/Store';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import {cyanA100} from 'material-ui/styles/colors';
-import {cyan400} from 'material-ui/styles/colors';
 import AppBar from 'material-ui/AppBar';
 import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/RaisedButton';
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import Dialog from 'material-ui/Dialog';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
-import IconButton from 'material-ui/IconButton';
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import DropDownMenu from 'material-ui/DropDownMenu';
-import Paper from 'material-ui/Paper';
+import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import ReactCSSTransitionGroup from 'react-addons-transition-group';
 
 // Needed for onTouchTap
@@ -43,18 +36,6 @@ const styles = {
       display: 'none'
     }
   },
-  card: {
-    width: 200,
-    float: 'left'
-  },
-  circlePaper: {
-    height: 200,
-    width: 200,
-    margin: 20,
-    textAlign: 'center',
-    display: 'inline-block',
-    cursor: 'pointer',
-  },
   otherMenu: {
     color: 'rgb(0, 151, 167)',
     textTransform: 'uppercase',
@@ -65,6 +46,11 @@ const styles = {
     underline: {
       display: 'none'
     }
+  },
+  mainInfoCard: {
+    position: 'absolute',
+    top: '440px',
+    width: '90%'
   }
 };
 
@@ -166,7 +152,7 @@ export default class AppBarDrawer extends React.Component {
 }
 
 const MainInfoCard = () => (
-  <Card>
+  <Card style={styles.mainInfoCard}>
     <CardTitle title="Card title" subtitle="Card subtitle" />
     <CardText>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -201,16 +187,6 @@ var Surfing = React.createClass({
   getInitialState: function() {
     return Store.get();
   },
-
-  // componentDidMount: function() {
-  //   Store.addListener('onTouchTap', this.changeEventHandler);
-  //   var circles = ReactDOM.findDOMNode(this.refs.circles);
-  //   var circle = circles.getElementsByClassName("main-card");
-  //   console.log(circle[0]);
-  //   circle[0].addEventListener(this.handleTouchTap('yo'), function() {
-  //     console.log('transition');
-  //   });
-  // },
 
   changeEventHandler: function() {
     this.setState(Store.get());
@@ -265,15 +241,9 @@ var Surfing = React.createClass({
             </div>
           </div>
 
-          <ReactCSSTransitionGroup
-                transitionName="example"
-                transitionEnterTimeout={500}
-                transitionLeaveTimeout={300}
-                transitionAppear={true}>
+          <div className="main-info-wrapper">
             <MainInfoCard/>
-          </ReactCSSTransitionGroup>
-
-          <div className="main-block"></div>
+          </div>
         </div>
       </MuiThemeProvider>
   )}
