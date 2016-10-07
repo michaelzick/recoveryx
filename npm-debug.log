@@ -11,7 +11,7 @@
 7 verbose unsafe-perm in lifecycle true
 8 info webpack-react-express@0.2.0 Failed to exec server script
 9 verbose stack Error: webpack-react-express@0.2.0 server: `node bin/www`
-9 verbose stack Exit status 137
+9 verbose stack Exit status 1
 9 verbose stack     at EventEmitter.<anonymous> (/home/ubuntu/.nvm/versions/node/v4.4.5/lib/node_modules/npm/lib/utils/lifecycle.js:217:16)
 9 verbose stack     at emitTwo (events.js:87:13)
 9 verbose stack     at EventEmitter.emit (events.js:172:7)
@@ -28,7 +28,7 @@
 15 error npm  v2.15.5
 16 error code ELIFECYCLE
 17 error webpack-react-express@0.2.0 server: `node bin/www`
-17 error Exit status 137
+17 error Exit status 1
 18 error Failed at the webpack-react-express@0.2.0 server script 'node bin/www'.
 18 error This is most likely a problem with the webpack-react-express package,
 18 error not with npm itself.
