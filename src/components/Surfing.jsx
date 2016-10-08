@@ -13,6 +13,7 @@ import MenuItem from 'material-ui/MenuItem';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import ReactCSSTransitionGroup from 'react-addons-transition-group';
+import Footer from '../../src/components/Footer.jsx';
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
@@ -244,6 +245,8 @@ var Surfing = React.createClass({
           <div className="main-info-wrapper">
             <MainInfoCard/>
           </div>
+
+          <Footer/>
         </div>
       </MuiThemeProvider>
   )}

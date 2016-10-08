@@ -113,6 +113,16 @@ a {
     width: 90%;
 }
 
+.card-margin-top {
+    margin-top: 230px;
+}
+
+#footer {
+    background: #FFF;
+    height: 200px;
+    margin-top: 250px;
+}
+
 /*.main-card {*/
 /*    -moz-transition: width 2s, height 2s, background-color 2s, -webkit-transform 2s;*/
 /*    -webkit-transition: width 2s, height 2s, background-color 2s, -webkit-transform 2s;*/

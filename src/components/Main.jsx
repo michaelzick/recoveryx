@@ -20,6 +20,7 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import Paper from 'material-ui/Paper';
 import ReactCSSTransitionGroup from 'react-addons-transition-group';
+import Footer from '../../src/components/Footer.jsx';
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
@@ -165,6 +166,22 @@ export default class AppBarDrawer extends React.Component {
   }
 }
 
+const InfoCard = () => (
+  <Card>
+    <CardTitle title="Card title" subtitle="Card subtitle" />
+    <CardText>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
+      Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
+      Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
+    </CardText>
+    <CardActions>
+      <FlatButton label="Action1" />
+      <FlatButton label="Action2" />
+    </CardActions>
+  </Card>
+);
+
 var Main = React.createClass({
   state: {
     open: false
@@ -270,6 +287,12 @@ var Main = React.createClass({
                 <div>Steps</div>
               </div>
           </div>
+
+          <div className="main-info-wrapper card-margin-top">
+            <InfoCard/>
+          </div>
+
+          <Footer/>
         </div>
       </MuiThemeProvider>
   )}

@@ -1,8 +1,8 @@
 var React         = require('react'),
     ReactDOM      = require('react-dom'),
-    Main = require('./components/Surfing.jsx');
+    Surfing = require('./components/Surfing.jsx');
 
 ReactDOM.render(
-  <Main/>,
+  <Surfing/>,
   document.getElementById("react-container")
 );
