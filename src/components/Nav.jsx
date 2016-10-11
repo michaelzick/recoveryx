@@ -64,7 +64,7 @@ export default class Menu extends React.Component {
   render() {
     return (
       <div className="dt-menu">
-        <FlatButton onClick={this.goToPage.bind(null, '/surfing')} label="Surfing" primary={true}/>
+        <FlatButton onClick={this.goToPage.bind(null, this.props.url)} label={this.props.label} primary={true}/>
         <FlatButton label="Skating" primary={true}/>
         <FlatButton label="Snowboarding" primary={true}/>
         <FlatButton label="Skiing" primary={true}/>
@@ -87,6 +87,7 @@ export default class Menu extends React.Component {
 export default class Nav extends React.Component {
   constructor(props) {
     super(props);
+    console.log(props.label);
     this.state = {
       open: false,
       value: 1
@@ -119,7 +120,7 @@ export default class Nav extends React.Component {
           className="app-bar"
           iconStyleLeft={styles.appBar.iconLeft}
         >
-          <Menu/>
+          <Menu label={this.props.label} url={this.props.url}/>
         </AppBar>
 
         <Drawer
@@ -129,7 +130,7 @@ export default class Nav extends React.Component {
           onRequestChange={(open) => this.setState({open})}
         >
           <div className="drawer-header" style={styles.appBar.header}></div>
-          <MenuItem onTouchTap={this.handleClose.bind(this)}>Surfing</MenuItem>
+          <MenuItem onTouchTap={this.handleClose.bind(this)}>{this.props.label}</MenuItem>
           <MenuItem onTouchTap={this.handleClose.bind(this)}>Skating</MenuItem>
           <MenuItem onTouchTap={this.handleClose.bind(this)}>Snowboarding</MenuItem>
           <MenuItem onTouchTap={this.handleClose.bind(this)}>Skiing</MenuItem>

@@ -115,7 +115,7 @@ var Main = React.createClass({
     return (
       <MuiThemeProvider muiTheme={getMuiTheme()}>
       	<div style={styles.container}>
-          <Nav/>
+          <Nav label="Surfing" url="/surfing"/>
 
           <Dialog
               className='dialog'
