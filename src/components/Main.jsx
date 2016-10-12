@@ -1,27 +1,27 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
 import Actions from '../../src/actions/Actions';
 import Store from '../../src/stores/Store';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import {cyanA100} from 'material-ui/styles/colors';
-import {cyan400} from 'material-ui/styles/colors';
-import AppBar from 'material-ui/AppBar';
 import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/RaisedButton';
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import Dialog from 'material-ui/Dialog';
-import Drawer from 'material-ui/Drawer';
-import MenuItem from 'material-ui/MenuItem';
-import IconButton from 'material-ui/IconButton';
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-import DropDownMenu from 'material-ui/DropDownMenu';
 import Paper from 'material-ui/Paper';
-import ReactCSSTransitionGroup from 'react-addons-transition-group';
 import Footer from '../../src/components/Footer.jsx';
 import Nav from '../../src/components/Nav.jsx';
+import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+// import ReactDOM from 'react-dom';
+// import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+// import {cyanA100} from 'material-ui/styles/colors';
+// import {cyan400} from 'material-ui/styles/colors';
+// import AppBar from 'material-ui/AppBar';
+// import RaisedButton from 'material-ui/RaisedButton';
+// import Drawer from 'material-ui/Drawer';
+// import MenuItem from 'material-ui/MenuItem';
+// import IconButton from 'material-ui/IconButton';
+// import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+// import DropDownMenu from 'material-ui/DropDownMenu';
+// import ReactCSSTransitionGroup from 'react-addons-transition-group';
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
@@ -72,29 +72,12 @@ var Main = React.createClass({
     });
   },
 
-  menuClick: function() {
-    this.setState({
-      open: !this.state.open,
-    });
-  },
-
   getInitialState: function() {
     return Store.get();
   },
 
-  changeEventHandler: function() {
-    this.setState(Store.get());
-    console.log(Store);
-  },
-
   handleChange: function() {
     Actions.set(this.state.value);
-  },
-
-  handleToggle: function() {
-    this.setState({
-      open: !this.state.open
-    });
   },
 
   handleTouchTap: function(text) {

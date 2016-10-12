@@ -1,18 +1,12 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
 import Actions from '../../src/actions/Actions';
 import Store from '../../src/stores/Store';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import AppBar from 'material-ui/AppBar';
 import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
-import Drawer from 'material-ui/Drawer';
-import MenuItem from 'material-ui/MenuItem';
-import DropDownMenu from 'material-ui/DropDownMenu';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
-import ReactCSSTransitionGroup from 'react-addons-transition-group';
 import Footer from '../../src/components/Footer.jsx';
 import Nav from '../../src/components/Nav.jsx';
 
@@ -58,36 +52,12 @@ var Surfing = React.createClass({
     });
   },
 
-  menuClick: function() {
-    this.setState({
-      open: !this.state.open,
-    });
-  },
-
   getInitialState: function() {
     return Store.get();
   },
 
-  changeEventHandler: function() {
-    this.setState(Store.get());
-    console.log(Store);
-  },
-
   handleChange: function() {
     Actions.set(this.state.value);
-  },
-
-  handleToggle: function() {
-    this.setState({
-      open: !this.state.open
-    });
-  },
-
-  handleTouchTap: function(text) {
-    this.setState({
-      open: true,
-      dialogText: text
-    });
   },
 
   render: function() {
