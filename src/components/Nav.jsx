@@ -71,7 +71,6 @@ export default class Menu extends React.Component {
 export default class Nav extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props.label);
     this.state = {
       open: false,
       value: 1
@@ -88,6 +87,10 @@ export default class Nav extends React.Component {
     this.setState({
       open: !this.state.open
     });
+  }
+
+  goToPage(loc) {
+    window.location = loc;
   }
 
   render() {
@@ -107,10 +110,16 @@ export default class Nav extends React.Component {
           docked={false}
           width={200}
           open={this.state.open}
-          onRequestChange={(open) => this.setState({open})}
-        >
+          onRequestChange={(open) => this.setState({open})}>
+
           <div className="drawer-header" style={styles.appBar.header}></div>
-          <MenuItem onTouchTap={this.handleClose.bind(this)}>{this.props.label}</MenuItem>
+
+          <MenuItem
+            onClick={this.goToPage.bind(null, this.props.url)}
+            onTouchTap={this.handleClose.bind(this)}>
+            {this.props.label}
+          </MenuItem>
+
           <MenuItem onTouchTap={this.handleClose.bind(this)}>Skating</MenuItem>
           <MenuItem onTouchTap={this.handleClose.bind(this)}>Snowboarding</MenuItem>
           <MenuItem onTouchTap={this.handleClose.bind(this)}>Skiing</MenuItem>
