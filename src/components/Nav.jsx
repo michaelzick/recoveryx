@@ -131,10 +131,12 @@ export default class MainMenu extends React.Component {
                   </Menu>
                 </Popover>
 
-                <FlatButton onClick={this.goToPage.bind(null, this.props.url)} label={this.props.label} primary={true}/>
-                <FlatButton label="Skating" onTouchTap={this.handleTouchTap.bind(this)} primary={true}/>
-                <FlatButton label="Snowboarding" onTouchTap={this.handleTouchTap.bind(this)} primary={true}/>
-                <FlatButton label="Skiing" onTouchTap={this.handleTouchTap.bind(this)} primary={true}/>
+                <FlatButton label={this.props.label} onClick={this.goToPage.bind(null, this.props.url)} primary={true} />
+                <FlatButton label="Skating" onTouchTap={this.handleTouchTap.bind(this)} primary={true} />
+                <FlatButton label="Snowboarding" onTouchTap={this.handleTouchTap.bind(this)} primary={true} />
+                <FlatButton label="About" onClick={this.goToPage.bind(null, '/about')} primary={true} />
+
+                {/*
                 <DropDownMenu
                     labelStyle={styles.otherMenu}
                     value={this.state.value}
@@ -145,6 +147,7 @@ export default class MainMenu extends React.Component {
                     <MenuItem value={4} primaryText="Swimming" />
                     <MenuItem value={5} primaryText="Add a sport" />
                 </DropDownMenu>
+                */}
             </div>
         );
     }
