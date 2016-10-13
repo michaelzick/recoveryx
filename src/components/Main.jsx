@@ -96,68 +96,70 @@ var Main = React.createClass({
           />
         );
 
-    return (
-        <MuiThemeProvider muiTheme={getMuiTheme()}>
-            <div style={styles.container}>
-                <Nav label="Surfing" url="/surfing"/>
+        return (
+            <MuiThemeProvider muiTheme={getMuiTheme()}>
+                <div style={styles.container}>
 
-                <Dialog
-                    className='dialog'
-                    open={this.state.open}
-                    title="Sports"
-                    actions={standardActions}
-                    onRequestClose={this.handleRequestClose}>
-                    {this.state.dialogText}
-                </Dialog>
+                    <Nav label="Surfing" url="/surfing"/>
 
-                <div className="clear"></div>
+                    <Dialog
+                        className='dialog'
+                        open={this.state.open}
+                        title="Sports"
+                        actions={standardActions}
+                        onRequestClose={this.handleRequestClose}>
+                        {this.state.dialogText}
+                    </Dialog>
 
-                <div className="hero">
-                    <div className="hero-inner">
-                        <h1 className="hero-title">RecoveryX</h1>
+                    <div className="clear"></div>
+
+                    <div className="hero">
+                        <div className="hero-inner">
+                            <h1 className="hero-title">RecoveryX</h1>
+                        </div>
                     </div>
+
+                    <div className="circles-block" ref="circles">
+                        <div className="circle-block">
+                            <Paper
+                                className="surfboard-card main-card"
+                                onTouchTap={this.handleTouchTap.bind(null, 'blah')}
+                                style={styles.circlePaper} zDepth={2}
+                                circle={true}>
+                            </Paper>
+                            <div>Sports</div>
+                        </div>
+
+                        <div className="circle-block">
+                            <Paper
+                                className="cleanup-card main-card"
+                                onTouchTap={this.handleTouchTap.bind(null, 'blah')}
+                                style={styles.circlePaper} zDepth={2}
+                                circle={true}>
+                            </Paper>
+                            <div>Service</div>
+                        </div>
+
+                        <div className="circle-block">
+                            <Paper
+                                className="twelve-card main-card"
+                                onTouchTap={this.handleTouchTap.bind(null, 'blah')}
+                                style={styles.circlePaper} zDepth={2}
+                                circle={true}>
+                            </Paper>
+                            <div>Steps</div>
+                        </div>
+                    </div>
+
+                    <div className="main-info-wrapper card-margin-top">
+                        <InfoCard/>
+                    </div>
+
+                    <Footer/>
                 </div>
-
-                <div className="circles-block" ref="circles">
-                    <div className="circle-block">
-                        <Paper
-                            className="surfboard-card main-card"
-                            onTouchTap={this.handleTouchTap.bind(null, 'blah')}
-                            style={styles.circlePaper} zDepth={2}
-                            circle={true}>
-                        </Paper>
-                        <div>Sports</div>
-                    </div>
-
-                    <div className="circle-block">
-                        <Paper
-                            className="cleanup-card main-card"
-                            onTouchTap={this.handleTouchTap.bind(null, 'blah')}
-                            style={styles.circlePaper} zDepth={2}
-                            circle={true}>
-                        </Paper>
-                        <div>Service</div>
-                    </div>
-
-                    <div className="circle-block">
-                        <Paper
-                            className="twelve-card main-card"
-                            onTouchTap={this.handleTouchTap.bind(null, 'blah')}
-                            style={styles.circlePaper} zDepth={2}
-                            circle={true}>
-                        </Paper>
-                        <div>Steps</div>
-                    </div>
-                </div>
-
-                <div className="main-info-wrapper card-margin-top">
-                    <InfoCard/>
-                </div>
-
-                <Footer/>
-            </div>
-        </MuiThemeProvider>
-    )}
+            </MuiThemeProvider>
+        );
+    }
 });
 
 module.exports = Main;

@@ -6,12 +6,13 @@ const styles = {
 };
 
 var Footer = React.createClass({
-  render: function() {
-    return (
-    	<div id="footer" style={styles.container}>
-        Footer
-      </div>
-  )}
+    render: function() {
+        return (
+          	<div id="footer" style={styles.container}>
+                Footer
+            </div>
+        );
+    }
 });
 
 module.exports = Footer;

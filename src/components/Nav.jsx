@@ -53,14 +53,14 @@ export default class Menu extends React.Component {
                 <FlatButton label="Snowboarding" primary={true}/>
                 <FlatButton label="Skiing" primary={true}/>
                 <DropDownMenu
-                  labelStyle={styles.otherMenu}
-                  value={this.state.value}
-                  underlineStyle={styles.otherMenu.underline}>
-                  <MenuItem value={1} primaryText="Other" />
-                  <MenuItem value={2} primaryText="Running" />
-                  <MenuItem value={3} primaryText="Hiking" />
-                  <MenuItem value={4} primaryText="Swimming" />
-                  <MenuItem value={5} primaryText="Add a sport" />
+                    labelStyle={styles.otherMenu}
+                    value={this.state.value}
+                    underlineStyle={styles.otherMenu.underline}>
+                    <MenuItem value={1} primaryText="Other" />
+                    <MenuItem value={2} primaryText="Running" />
+                    <MenuItem value={3} primaryText="Hiking" />
+                    <MenuItem value={4} primaryText="Swimming" />
+                    <MenuItem value={5} primaryText="Add a sport" />
                 </DropDownMenu>
             </div>
         );

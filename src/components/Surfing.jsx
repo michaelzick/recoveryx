@@ -27,7 +27,7 @@ const styles = {
 
 const MainInfoCard = () => (
     <Card style={styles.mainInfoCard}>
-      <CardTitle title="Card title" subtitle="Card subtitle" />
+        <CardTitle title="Card title" subtitle="Card subtitle" />
         <CardText>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
@@ -69,36 +69,37 @@ var Surfing = React.createClass({
             />
         );
 
-    return (
-        <MuiThemeProvider muiTheme={getMuiTheme()}>
-          	<div style={styles.container}>
-                <Nav label="Home" url="/"/>
+        return (
+            <MuiThemeProvider muiTheme={getMuiTheme()}>
+              	<div style={styles.container}>
+                    <Nav label="Home" url="/"/>
 
-                <Dialog
-                    className='dialog'
-                    open={this.state.open}
-                    title="Sports"
-                    actions={standardActions}
-                    onRequestClose={this.handleRequestClose}>
-                    {this.state.dialogText}
-                </Dialog>
+                    <Dialog
+                        className='dialog'
+                        open={this.state.open}
+                        title="Sports"
+                        actions={standardActions}
+                        onRequestClose={this.handleRequestClose}>
+                        {this.state.dialogText}
+                    </Dialog>
 
-                <div className="clear"></div>
+                    <div className="clear"></div>
 
-                <div className="hero">
-                    <div className="hero-inner">
-                        <h1 className="hero-title">Surfing</h1>
+                    <div className="hero">
+                        <div className="hero-inner">
+                            <h1 className="hero-title">Surfing</h1>
+                        </div>
                     </div>
-                </div>
 
-                <div className="main-info-wrapper">
-                    <MainInfoCard/>
-                </div>
+                    <div className="main-info-wrapper">
+                        <MainInfoCard/>
+                    </div>
 
-                <Footer/>
-            </div>
-        </MuiThemeProvider>
-    )}
+                    <Footer/>
+                </div>
+            </MuiThemeProvider>
+        );
+    }
 });
 
 module.exports = Surfing;
