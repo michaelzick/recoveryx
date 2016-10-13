@@ -119,8 +119,6 @@ export default class MainMenu extends React.Component {
     render() {
         return (
             <div className="dt-menu">
-                <FlatButton onClick={this.goToPage.bind(null, this.props.url)} label={this.props.label} primary={true}/>
-                <FlatButton label="Skating" onTouchTap={this.handleTouchTap.bind(this)} primary={true}/>
                 <Popover
                   open={this.state.open}
                   anchorEl={this.state.anchorEl}
@@ -129,12 +127,14 @@ export default class MainMenu extends React.Component {
                   onRequestClose={this.handleRequestClose.bind(this)}
                 >
                   <Menu>
-                    <MenuItem primaryText="Coming Soon!" />
+                    <MenuItem primaryText="Coming Soon!" disabled="true" />
                   </Menu>
                 </Popover>
 
-                <FlatButton label="Snowboarding" primary={true}/>
-                <FlatButton label="Skiing" primary={true}/>
+                <FlatButton onClick={this.goToPage.bind(null, this.props.url)} label={this.props.label} primary={true}/>
+                <FlatButton label="Skating" onTouchTap={this.handleTouchTap.bind(this)} primary={true}/>
+                <FlatButton label="Snowboarding" onTouchTap={this.handleTouchTap.bind(this)} primary={true}/>
+                <FlatButton label="Skiing" onTouchTap={this.handleTouchTap.bind(this)} primary={true}/>
                 <DropDownMenu
                     labelStyle={styles.otherMenu}
                     value={this.state.value}
