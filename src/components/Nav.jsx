@@ -2,8 +2,10 @@ import React, {Component} from 'react';
 import AppBar from 'material-ui/AppBar';
 import FlatButton from 'material-ui/FlatButton';
 import Drawer from 'material-ui/Drawer';
+import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
 import DropDownMenu from 'material-ui/DropDownMenu';
+import Popover from 'material-ui/Popover';
 
 const styles = {
     appBar: {
@@ -33,11 +35,64 @@ const styles = {
     }
 };
 
-export default class Menu extends React.Component {
+export default class PopoverExampleSimple extends React.Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      open: false,
+    };
+  }
+
+  handleTouchTap(event) {
+    // This prevents ghost click.
+    event.preventDefault();
+
+    this.setState({
+      open: true,
+      anchorEl: event.currentTarget,
+    });
+  }
+
+  handleRequestClose() {
+    this.setState({
+      open: false,
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <RaisedButton
+          onTouchTap={this.handleTouchTap}
+          label="Click me"
+        />
+        <Popover
+          open={this.state.open}
+          anchorEl={this.state.anchorEl}
+          anchorOrigin={{horizontal: 'left', vertical: 'bottom'}}
+          targetOrigin={{horizontal: 'left', vertical: 'top'}}
+          onRequestClose={this.handleRequestClose}
+        >
+          <Menu>
+            <MenuItem primaryText="Refresh" />
+            <MenuItem primaryText="Help &amp; feedback" />
+            <MenuItem primaryText="Settings" />
+            <MenuItem primaryText="Sign out" />
+          </Menu>
+        </Popover>
+      </div>
+    );
+  }
+}
+
+export default class MainMenu extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: 1
+            value: 1,
+            open: false,
         };
     }
 
@@ -45,11 +100,39 @@ export default class Menu extends React.Component {
         window.location = loc;
     }
 
+    handleTouchTap(event) {
+        // This prevents ghost click.
+        event.preventDefault();
+
+        this.setState({
+          open: true,
+          anchorEl: event.currentTarget,
+        });
+      }
+
+      handleRequestClose() {
+        this.setState({
+          open: false,
+        });
+      }
+
     render() {
         return (
             <div className="dt-menu">
                 <FlatButton onClick={this.goToPage.bind(null, this.props.url)} label={this.props.label} primary={true}/>
-                <FlatButton label="Skating" primary={true}/>
+                <FlatButton label="Skating" onTouchTap={this.handleTouchTap.bind(this)} primary={true}/>
+                <Popover
+                  open={this.state.open}
+                  anchorEl={this.state.anchorEl}
+                  anchorOrigin={{horizontal: 'left', vertical: 'bottom'}}
+                  targetOrigin={{horizontal: 'left', vertical: 'top'}}
+                  onRequestClose={this.handleRequestClose.bind(this)}
+                >
+                  <Menu>
+                    <MenuItem primaryText="Coming Soon!" />
+                  </Menu>
+                </Popover>
+
                 <FlatButton label="Snowboarding" primary={true}/>
                 <FlatButton label="Skiing" primary={true}/>
                 <DropDownMenu
@@ -101,7 +184,8 @@ export default class Nav extends React.Component {
                     iconClassNameLeft="app-bar-burger"
                     className="app-bar"
                     iconStyleLeft={styles.appBar.iconLeft}>
-                    <Menu label={this.props.label} url={this.props.url}/>
+
+                    <MainMenu label={this.props.label} url={this.props.url}/>
                 </AppBar>
 
                 <Drawer
