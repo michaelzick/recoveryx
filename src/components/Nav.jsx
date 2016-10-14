@@ -35,58 +35,6 @@ const styles = {
     }
 };
 
-export default class PopoverExampleSimple extends React.Component {
-
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      open: false,
-    };
-  }
-
-  handleTouchTap(event) {
-    // This prevents ghost click.
-    event.preventDefault();
-
-    this.setState({
-      open: true,
-      anchorEl: event.currentTarget,
-    });
-  }
-
-  handleRequestClose() {
-    this.setState({
-      open: false,
-    });
-  }
-
-  render() {
-    return (
-      <div>
-        <RaisedButton
-          onTouchTap={this.handleTouchTap}
-          label="Click me"
-        />
-        <Popover
-          open={this.state.open}
-          anchorEl={this.state.anchorEl}
-          anchorOrigin={{horizontal: 'left', vertical: 'bottom'}}
-          targetOrigin={{horizontal: 'left', vertical: 'top'}}
-          onRequestClose={this.handleRequestClose}
-        >
-          <Menu>
-            <MenuItem primaryText="Refresh" />
-            <MenuItem primaryText="Help &amp; feedback" />
-            <MenuItem primaryText="Settings" />
-            <MenuItem primaryText="Sign out" />
-          </Menu>
-        </Popover>
-      </div>
-    );
-  }
-}
-
 export default class MainMenu extends React.Component {
     constructor(props) {
         super(props);
@@ -105,16 +53,16 @@ export default class MainMenu extends React.Component {
         event.preventDefault();
 
         this.setState({
-          open: true,
-          anchorEl: event.currentTarget,
+            open: true,
+            anchorEl: event.currentTarget,
         });
-      }
+    }
 
-      handleRequestClose() {
+    handleRequestClose() {
         this.setState({
-          open: false,
+            open: false
         });
-      }
+    }
 
     render() {
         return (
@@ -127,14 +75,14 @@ export default class MainMenu extends React.Component {
                   onRequestClose={this.handleRequestClose.bind(this)}
                 >
                   <Menu>
-                    <MenuItem primaryText="Coming Soon!" disabled="true" />
+                    <MenuItem primaryText="Coming Soon!" disabled={true} />
                   </Menu>
                 </Popover>
 
                 <FlatButton label={this.props.label} onClick={this.goToPage.bind(null, this.props.url)} primary={true} />
                 <FlatButton label="Skating" onTouchTap={this.handleTouchTap.bind(this)} primary={true} />
                 <FlatButton label="Snowboarding" onTouchTap={this.handleTouchTap.bind(this)} primary={true} />
-                <FlatButton label="About" onClick={this.goToPage.bind(null, '/about')} primary={true} />
+                <FlatButton label="Contact" onClick={this.goToPage.bind(null, '/contact')} primary={true} />
 
                 {/*
                 <DropDownMenu
@@ -178,6 +126,16 @@ export default class Nav extends React.Component {
         window.location = loc;
     }
 
+    handleTouchTap(event) {
+        // This prevents ghost click.
+        event.preventDefault();
+
+        this.setState({
+            open: true,
+            anchorEl: event.currentTarget,
+        });
+    }
+
     render() {
         return (
             <div>
@@ -205,9 +163,11 @@ export default class Nav extends React.Component {
                         {this.props.label}
                     </MenuItem>
 
-                    <MenuItem onTouchTap={this.handleClose.bind(this)}>Skating</MenuItem>
-                    <MenuItem onTouchTap={this.handleClose.bind(this)}>Snowboarding</MenuItem>
-                    <MenuItem onTouchTap={this.handleClose.bind(this)}>Skiing</MenuItem>
+                    <MenuItem onTouchTap={this.handleTouchTap.bind(this)}>Skating</MenuItem>
+                    <MenuItem onTouchTap={this.handleTouchTap.bind(this)}>Snowboarding</MenuItem>
+                    <MenuItem onTouchTap={this.handleTouchTap.bind(this)}>Contact</MenuItem>
+
+                    {/*
                     <DropDownMenu value={this.state.value}>
                         <MenuItem value={1} primaryText="Other" />
                         <MenuItem value={2} onTouchTap={this.handleClose.bind(this)} primaryText="Running" />
@@ -215,6 +175,7 @@ export default class Nav extends React.Component {
                         <MenuItem value={4} onTouchTap={this.handleClose.bind(this)} primaryText="Swimming" />
                         <MenuItem value={5} onTouchTap={this.handleClose.bind(this)} primaryText="Add a sport" />
                     </DropDownMenu>
+                    */}
                 </Drawer>
             </div>
         );
