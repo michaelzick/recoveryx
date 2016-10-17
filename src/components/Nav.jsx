@@ -106,7 +106,8 @@ export default class Nav extends React.Component {
         super(props);
         this.state = {
             open: false,
-            value: 1
+            value: 1,
+            popOpen: false
         };
     }
 
@@ -131,14 +132,31 @@ export default class Nav extends React.Component {
         event.preventDefault();
 
         this.setState({
-            open: true,
+            popOpen: true,
             anchorEl: event.currentTarget,
+        });
+    }
+
+    handleRequestClose() {
+        this.setState({
+            popOpen: false
         });
     }
 
     render() {
         return (
             <div>
+                <Popover
+                  open={this.state.popOpen}
+                  anchorEl={this.state.anchorEl}
+                  anchorOrigin={{horizontal: 'left', vertical: 'bottom'}}
+                  targetOrigin={{horizontal: 'left', vertical: 'top'}}
+                  onRequestClose={this.handleRequestClose.bind(this)}>
+                  <Menu>
+                    <MenuItem primaryText="Coming Soon!" disabled={true} />
+                  </Menu>
+                </Popover>
+
                 <AppBar
                     style={styles.appBar}
                     onLeftIconButtonTouchTap={this.handleToggle.bind(this)}
