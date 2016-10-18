@@ -52,8 +52,8 @@ export default class MainMenu extends React.Component {
         return (
             <div className="dt-menu">
                 <FlatButton label={this.props.label} onClick={this.goToPage.bind(null, this.props.url)} primary={true} />
-                <FlatButton label="Skating" onTouchTap={this.props.handleTouchTap.bind(this)} primary={true} />
-                <FlatButton label="Snowboarding" onTouchTap={this.props.handleTouchTap.bind(this)} primary={true} />
+                <FlatButton label="Skating" onTouchTap={this.props.handleTouchTap} primary={true} />
+                <FlatButton label="Snowboarding" onTouchTap={this.props.handleTouchTap} primary={true} />
                 <FlatButton label="Contact" onClick={this.goToPage.bind(null, '/contact')} primary={true} />
 
                 {/*
