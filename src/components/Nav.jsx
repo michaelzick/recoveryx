@@ -48,40 +48,12 @@ export default class MainMenu extends React.Component {
         window.location = loc;
     }
 
-    handleTouchTap(event) {
-        // This prevents ghost click.
-        event.preventDefault();
-
-        this.setState({
-            open: true,
-            anchorEl: event.currentTarget,
-        });
-    }
-
-    handleRequestClose() {
-        this.setState({
-            open: false
-        });
-    }
-
     render() {
         return (
             <div className="dt-menu">
-                <Popover
-                  open={this.state.open}
-                  anchorEl={this.state.anchorEl}
-                  anchorOrigin={{horizontal: 'left', vertical: 'bottom'}}
-                  targetOrigin={{horizontal: 'left', vertical: 'top'}}
-                  onRequestClose={this.handleRequestClose.bind(this)}
-                >
-                  <Menu>
-                    <MenuItem primaryText="Coming Soon!" disabled={true} />
-                  </Menu>
-                </Popover>
-
                 <FlatButton label={this.props.label} onClick={this.goToPage.bind(null, this.props.url)} primary={true} />
-                <FlatButton label="Skating" onTouchTap={this.handleTouchTap.bind(this)} primary={true} />
-                <FlatButton label="Snowboarding" onTouchTap={this.handleTouchTap.bind(this)} primary={true} />
+                <FlatButton label="Skating" onTouchTap={this.props.handleTouchTap.bind(this)} primary={true} />
+                <FlatButton label="Snowboarding" onTouchTap={this.props.handleTouchTap.bind(this)} primary={true} />
                 <FlatButton label="Contact" onClick={this.goToPage.bind(null, '/contact')} primary={true} />
 
                 {/*
@@ -164,7 +136,11 @@ export default class Nav extends React.Component {
                     className="app-bar"
                     iconStyleLeft={styles.appBar.iconLeft}>
 
-                    <MainMenu label={this.props.label} url={this.props.url}/>
+                    <MainMenu label={
+                        this.props.label}
+                        url={this.props.url}
+                        handleTouchTap={this.handleTouchTap.bind(this)}
+                    />
                 </AppBar>
 
                 <Drawer
