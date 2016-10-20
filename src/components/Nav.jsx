@@ -12,6 +12,7 @@ const styles = {
         backgroundColor: 'rgba(0, 0, 0, 0.66)',
         position: 'absolute',
         boxShadow: 'none',
+        textAlign: 'left',
         header: {
             height: 90,
             fontSize: 30,
@@ -134,6 +135,7 @@ export default class Nav extends React.Component {
                     onLeftIconButtonTouchTap={this.handleToggle.bind(this)}
                     iconClassNameLeft="app-bar-burger"
                     className="app-bar"
+                    title="Rx"
                     iconStyleLeft={styles.appBar.iconLeft}>
 
                     <MainMenu label={
