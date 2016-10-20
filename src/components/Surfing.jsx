@@ -95,7 +95,7 @@ var Surfing = React.createClass({
                         <MainInfoCard/>
                     </div>
 
-                    <Footer/>
+                    {/*<Footer/>*/}
                 </div>
             </MuiThemeProvider>
         );

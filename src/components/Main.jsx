@@ -155,7 +155,7 @@ var Main = React.createClass({
                         <InfoCard/>
                     </div>
 
-                    <Footer/>
+                    {/*<Footer/>*/}
                 </div>
             </MuiThemeProvider>
         );

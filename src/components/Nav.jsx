@@ -135,7 +135,12 @@ export default class Nav extends React.Component {
                     onLeftIconButtonTouchTap={this.handleToggle.bind(this)}
                     iconClassNameLeft="app-bar-burger"
                     className="app-bar"
-                    title="Rx"
+                    title={
+                        <div>
+                            <span className="nav-logo-r">R</span>
+                            <span className="nav-logo-x">x</span>
+                        </div>
+                    }
                     iconStyleLeft={styles.appBar.iconLeft}>
 
                     <MainMenu label={
