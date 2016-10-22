@@ -39,6 +39,7 @@ const styles = {
 export default class MainMenu extends React.Component {
     constructor(props) {
         super(props);
+        console.log(props);
         this.state = {
             value: 1,
             open: false,
@@ -52,7 +53,15 @@ export default class MainMenu extends React.Component {
     render() {
         return (
             <div className="dt-menu">
-                <FlatButton label={this.props.label} onClick={this.goToPage.bind(null, this.props.url)} primary={true} />
+                <FlatButton
+                    onClick={this.goToPage.bind(null, this.props.url)}
+                    label={
+                        <span className={this.props.outline}>
+                            {this.props.label}
+                        </span>
+                    }
+                    disabled={this.props.disabled}
+                    primary={true} />
                 <FlatButton label="Skating" onTouchTap={this.props.handleTouchTap} primary={true} />
                 <FlatButton label="Snowboarding" onTouchTap={this.props.handleTouchTap} primary={true} />
                 <FlatButton label="Contact" onClick={this.goToPage.bind(null, '/contact')} primary={true} />
@@ -149,6 +158,8 @@ export default class Nav extends React.Component {
                         this.props.label}
                         url={this.props.url}
                         handleTouchTap={this.handleTouchTap.bind(this)}
+                        outline={this.props.outline}
+                        disabled={this.props.disabled}
                     />
                 </AppBar>
 
@@ -162,8 +173,11 @@ export default class Nav extends React.Component {
 
                     <MenuItem
                         onClick={this.goToPage.bind(null, this.props.url)}
-                        onTouchTap={this.handleClose.bind(this)}>
-                        {this.props.label}
+                        onTouchTap={this.handleClose.bind(this)}
+                        disabled={this.props.disabled}>
+                        <span className={this.props.outline}>
+                            {this.props.label}
+                        </span>
                     </MenuItem>
 
                     <MenuItem onTouchTap={this.handleTouchTap.bind(this)}>Skating</MenuItem>
