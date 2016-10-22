@@ -171,7 +171,7 @@ export default class Nav extends React.Component {
                     open={this.state.open}
                     onRequestChange={(open) => this.setState({open})}>
 
-                    <div className="drawer-header" style={styles.appBar.header}></div>
+                    <div className="drawer-header primary-cyan-bg">RecoveryX</div>
 
                     <MenuItem
                         onClick={this.goToPage.bind(null, this.props.url)}
