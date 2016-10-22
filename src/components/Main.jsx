@@ -5,6 +5,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import FlatButton from 'material-ui/FlatButton';
+import {cyanA200} from 'material-ui/styles/colors';
 import Dialog from 'material-ui/Dialog';
 import Paper from 'material-ui/Paper';
 import Footer from '../../src/components/Footer.jsx';
@@ -97,7 +98,11 @@ var Main = React.createClass({
         );
 
         return (
-            <MuiThemeProvider muiTheme={getMuiTheme()}>
+            <MuiThemeProvider muiTheme={getMuiTheme({
+                palette: {
+                    primary1Color: cyanA200
+                },
+            })}>
                 <div style={styles.container}>
 
                     <Nav label="Surfing" url="/surfing" outline="" />

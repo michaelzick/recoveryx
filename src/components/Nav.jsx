@@ -3,6 +3,7 @@ import AppBar from 'material-ui/AppBar';
 import FlatButton from 'material-ui/FlatButton';
 import Drawer from 'material-ui/Drawer';
 import Menu from 'material-ui/Menu';
+import {cyanA200} from 'material-ui/styles/colors';
 import MenuItem from 'material-ui/MenuItem';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import Popover from 'material-ui/Popover';
@@ -21,7 +22,7 @@ const styles = {
         iconLeft: {
             padding: 0,
             display: 'none'
-        }
+        },
     },
     otherMenu: {
         color: 'rgb(0, 151, 167)',
@@ -33,7 +34,7 @@ const styles = {
         underline: {
             display: 'none'
         }
-    }
+    },
 };
 
 export default class MainMenu extends React.Component {
@@ -60,7 +61,7 @@ export default class MainMenu extends React.Component {
                         </span>
                     }
                     disabled={this.props.disabled}
-                    primary={true} />
+                    primary={true}/>
                 <FlatButton label="Skating" onTouchTap={this.props.handleTouchTap} primary={true} />
                 <FlatButton label="Snowboarding" onTouchTap={this.props.handleTouchTap} primary={true} />
                 <FlatButton label="Contact" onClick={this.goToPage.bind(null, '/contact')} primary={true} />
