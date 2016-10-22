@@ -5,7 +5,8 @@ body {
 }
 
 a {
-    color: #00B7FF;
+    text-decoration: none;
+    color: inherit;
 }
 
 .clear {
@@ -134,6 +135,8 @@ a {
 .nav-logo-x {
     font-size: 30px;
     color: #80eaff;
+    position: absolute;
+    top: 12px;
 }
 
 @media only screen and (max-width: 767px) {
