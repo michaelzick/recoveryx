@@ -3,7 +3,6 @@ import AppBar from 'material-ui/AppBar';
 import FlatButton from 'material-ui/FlatButton';
 import Drawer from 'material-ui/Drawer';
 import Menu from 'material-ui/Menu';
-import {cyanA200} from 'material-ui/styles/colors';
 import MenuItem from 'material-ui/MenuItem';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import Popover from 'material-ui/Popover';
@@ -151,7 +150,7 @@ export default class Nav extends React.Component {
                         <div>
                             <a href="/">
                                 <span className="nav-logo-r">R</span>
-                                <span className="nav-logo-x">x</span>
+                                <span className="nav-logo-x primary-cyan-text">x</span>
                             </a>
                         </div>
                     }

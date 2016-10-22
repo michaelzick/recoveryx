@@ -5,6 +5,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import FlatButton from 'material-ui/FlatButton';
+import {cyanA200} from 'material-ui/styles/colors';
 import Dialog from 'material-ui/Dialog';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import Footer from '../../src/components/Footer.jsx';
@@ -70,7 +71,11 @@ var Surfing = React.createClass({
         );
 
         return (
-            <MuiThemeProvider muiTheme={getMuiTheme()}>
+            <MuiThemeProvider muiTheme={getMuiTheme({
+                palette: {
+                    primary1Color: cyanA200
+                },
+            })}>
               	<div style={styles.container}>
                     <Nav label="Surfing" url={false} outline="nav-outline" disabled={true}/>
 
@@ -95,7 +100,7 @@ var Surfing = React.createClass({
                         <MainInfoCard/>
                     </div>
 
-                    {/*<Footer/>*/}
+                    <Footer/>
                 </div>
             </MuiThemeProvider>
         );
