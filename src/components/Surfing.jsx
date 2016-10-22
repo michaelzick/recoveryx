@@ -19,15 +19,10 @@ const styles = {
     container: {
         textAlign: 'center'
     },
-    mainInfoCard: {
-        position: 'absolute',
-        top: '440px',
-        width: '90%'
-    }
 };
 
 const MainInfoCard = () => (
-    <Card style={styles.mainInfoCard}>
+    <Card className="surf-main-info-card">
         <CardTitle title="Card title" subtitle="Card subtitle" />
         <CardText>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -97,7 +92,7 @@ var Surfing = React.createClass({
                     </div>
 
                     <div className="main-info-wrapper">
-                        <MainInfoCard/>
+                        <MainInfoCard />
                     </div>
 
                     <Footer/>

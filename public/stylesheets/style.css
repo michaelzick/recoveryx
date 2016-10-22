@@ -150,6 +150,14 @@ a {
     color: #FFF;
 }
 
+/*SURFING*/
+.surf-main-info-card {
+    position: absolute;
+    top: 440px;
+    width: 90%;
+}
+/*END SURFING*/
+
 @media only screen and (max-width: 767px) {
     .dt-menu {
         display: none;
@@ -189,5 +197,17 @@ a {
 
     .circles-block {
         margin-top: -270px;
+    }
+
+    .nav-logo {
+        text-align: right;
+    }
+
+    .hero {
+        height: 270px;
+    }
+
+    .surf-main-info-card {
+        top: 200px;
     }
 }
