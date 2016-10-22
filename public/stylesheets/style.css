@@ -161,6 +161,10 @@ a {
     color: #FFF;
 }
 
+.card-subtitle {
+    font-size: 20px;
+}
+
 /*SURFING*/
 .surf-main-info-card {
     position: absolute;

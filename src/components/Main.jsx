@@ -34,7 +34,10 @@ const styles = {
     },
     card: {
         width: 200,
-        float: 'left'
+        float: 'left',
+        cardText: {
+            fontSize: '16px',
+        }
     },
     circlePaper: {
         height: 200,
@@ -48,16 +51,25 @@ const styles = {
 
 const InfoCard = () => (
     <Card className="main-info-card">
-        <CardTitle title="Card title" subtitle="Card subtitle" />
-        <CardText>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-            Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-            Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
+        <CardTitle title="Our Mission:"
+            subtitle={
+                <span className="card-subtitle">
+                    To break the chains of substance abuse through extreme sports.
+                </span>
+            }
+        />
+        <CardText style={styles.card.cardText}>
+            RecoveryX seeks to improve the lives of those recovering from drugs and alcohol,
+             and foster a spirit of community, comradery and a healthy replacement for the substances that were destroying
+             our lives. Whether you're just starting out or a semi-pro; a surfer, skater, snowboarder, or just an active person
+             looking to replace addiction for endorphines, you've come to the right place!
+             <br/>
+             <br/>
+            Click on one of the circles above or visit a dedicated sports page to find out more!
         </CardText>
         <CardActions>
-            <FlatButton label="Action1" />
-            <FlatButton label="Action2" />
+            {/*<FlatButton label="Action1" />
+            <FlatButton label="Action2" />*/}
         </CardActions>
     </Card>
 );
