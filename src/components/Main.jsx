@@ -47,7 +47,7 @@ const styles = {
 };
 
 const InfoCard = () => (
-    <Card>
+    <Card className="main-info-card">
         <CardTitle title="Card title" subtitle="Card subtitle" />
         <CardText>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.

@@ -204,10 +204,14 @@ a {
     }
 
     .hero {
-        height: 270px;
+        height: 350px;
     }
 
     .surf-main-info-card {
-        top: 200px;
+        top: 260px;
+    }
+
+    .card-margin-top {
+        margin-top: 30px;
     }
 }
