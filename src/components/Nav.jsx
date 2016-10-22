@@ -39,7 +39,6 @@ const styles = {
 export default class MainMenu extends React.Component {
     constructor(props) {
         super(props);
-        console.log(props);
         this.state = {
             value: 1,
             open: false,
@@ -106,7 +105,10 @@ export default class Nav extends React.Component {
     }
 
     goToPage(loc) {
-        window.location = loc;
+        // Run if not false.
+        if (loc) {
+            window.location = loc;
+        }
     }
 
     handleTouchTap(event) {

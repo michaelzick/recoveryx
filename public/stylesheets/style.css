@@ -140,9 +140,11 @@ a {
 }
 
 .nav-outline {
-    border: 1px solid #128298;
+    background: #e1f8ff;
     padding: 8px;
     border-radius: 3px;
+    background: #f00;
+    color: #FFF;
 }
 
 @media only screen and (max-width: 767px) {
