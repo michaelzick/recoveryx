@@ -149,6 +149,8 @@ a {
     font-size: 30px;
     position: absolute;
     top: 12px;
+    font-style: italic;
+    left: 49px;
 }
 
 .nav-outline {
