@@ -147,7 +147,7 @@ export default class Nav extends React.Component {
                     iconClassNameLeft="app-bar-burger"
                     className="app-bar"
                     title={
-                        <div className="nav-logo">
+                        <div className="nav-logo relative">
                             <a href="/">
                                 <span className="nav-logo-r">R</span>
                                 <span className="nav-logo-x primary-cyan-text">x</span>
