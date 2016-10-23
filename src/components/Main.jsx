@@ -49,12 +49,22 @@ const styles = {
     },
 };
 
+const dialogText = {
+    sports: 'Currently we\'re only organizing surfing meetups, but will be adding skating, snowboarding and more in the future. ' +
+                'Come join us regardless of skill level - we\'ll have a board that suits you!',
+    service: 'With a firm belief that self esteem is built through esteemable acts, we pride ourselves in our community involvement. ' +
+                'Whether it\'s a beach cleanup or helping a newcomer get on a board, we strive to make service a core value.',
+    steps: 'Rooted in the 12 steps found in several successful recovery programs, we believe that living a spiritual life, driven by these ' +
+                'principles, are what lead us to becoming better people in our daily lives. Don\'t be put off by the "G" word. All religions ' +
+                'and spiritual practices are welcome. We do however follow the 12 steps as a general guide to living.'
+};
+
 const InfoCard = () => (
     <Card className="main-info-card">
         <CardTitle title="Our Mission:"
             subtitle={
                 <span className="card-subtitle">
-                    To break the chains of substance abuse through extreme sports.
+                    Provide an active outlet for those recovering from drug and alcohol addiction.
                 </span>
             }
         />
@@ -93,9 +103,10 @@ var Main = React.createClass({
         Actions.set(this.state.value);
     },
 
-    handleTouchTap: function(text) {
+    handleTouchTap: function(title, text) {
         this.setState({
             open: true,
+            title: title,
             dialogText: text
         });
     },
@@ -122,7 +133,7 @@ var Main = React.createClass({
                     <Dialog
                         className='dialog'
                         open={this.state.open}
-                        title="Sports"
+                        title={this.state.title}
                         actions={standardActions}
                         onRequestClose={this.handleRequestClose}>
                         {this.state.dialogText}
@@ -140,7 +151,7 @@ var Main = React.createClass({
                         <div className="circle-block">
                             <Paper
                                 className="surfboard-card main-card"
-                                onTouchTap={this.handleTouchTap.bind(null, 'blah')}
+                                onTouchTap={this.handleTouchTap.bind(null, 'Sports', dialogText.sports)}
                                 style={styles.circlePaper} zDepth={2}
                                 circle={true}>
                             </Paper>
@@ -150,7 +161,7 @@ var Main = React.createClass({
                         <div className="circle-block">
                             <Paper
                                 className="cleanup-card main-card"
-                                onTouchTap={this.handleTouchTap.bind(null, 'blah')}
+                                onTouchTap={this.handleTouchTap.bind(null, 'Service', dialogText.service)}
                                 style={styles.circlePaper} zDepth={2}
                                 circle={true}>
                             </Paper>
@@ -160,7 +171,7 @@ var Main = React.createClass({
                         <div className="circle-block">
                             <Paper
                                 className="twelve-card main-card"
-                                onTouchTap={this.handleTouchTap.bind(null, 'blah')}
+                                onTouchTap={this.handleTouchTap.bind(null, 'Steps', dialogText.steps)}
                                 style={styles.circlePaper} zDepth={2}
                                 circle={true}>
                             </Paper>
