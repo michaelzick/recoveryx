@@ -33,8 +33,6 @@ const styles = {
         textAlign: 'center'
     },
     card: {
-        width: 200,
-        float: 'left',
         cardText: {
             fontSize: '16px',
         }

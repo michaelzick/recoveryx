@@ -19,20 +19,23 @@ const styles = {
     container: {
         textAlign: 'center'
     },
+    card: {
+        cardText: {
+            fontSize: '16px',
+        }
+    },
 };
 
 const MainInfoCard = () => (
     <Card className="surf-main-info-card">
-        <CardTitle title="Card title" subtitle="Card subtitle" />
-        <CardText>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-            Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-            Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
+        <CardTitle title="Surfing Meetups" subtitle="" />
+        <CardText style={styles.card.cardText}>
+            Currently our surfing schedule is organized through meetups found through our <a href=''>Facebook page</a>.
+             You can also check us out on <a href="">Instragram</a>.
         </CardText>
         <CardActions>
-            <FlatButton label="Action1" />
-            <FlatButton label="Action2" />
+            <FlatButton onClick={() => window.open('//www.facebook.com/rxorg','_blank')} label="Facebook" />
+            <FlatButton onClick={() => window.open('//www.instagram.com/rxorg','_blank')} label="Instagram" />
         </CardActions>
     </Card>
 );
