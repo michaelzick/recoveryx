@@ -11,7 +11,8 @@ module.exports = {
   cache: true,
   entry: {
     main:  './src/index.jsx',
-    surfing: './src/surfing.jsx'
+    surfing: './src/surfing.jsx',
+    contact: './src/contact.jsx',
   },
   output: {
     path: 'public/build',

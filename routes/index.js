@@ -36,4 +36,10 @@ router.get('/surfing', function(req, res) {
   });
 });
 
+router.get('/contact', function(req, res) {
+  res.render('contact', {
+    title: 'RecoveryX - Contact'
+  });
+});
+
 module.exports = router;
