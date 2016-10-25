@@ -43,7 +43,6 @@ export default class MainMenu extends React.Component {
             value: 1,
             open: false,
         };
-        console.log(this.props)
     }
 
     goToPage(loc) {
@@ -187,7 +186,7 @@ export default class Nav extends React.Component {
                         onClick={this.goToPage.bind(null, '/surfing')}
                         onTouchTap={this.handleClose.bind(this)}
                         disabled={this.props.page === 'surfing' ? true : false}>
-                        <span className={this.props.page === 'surfing' ? 'disabled' : ''}>
+                        <span className={this.props.page === 'surfing' ? 'nav-outline' : ''}>
                             Surfing
                         </span>
                     </MenuItem>
@@ -198,7 +197,7 @@ export default class Nav extends React.Component {
                         onClick={this.goToPage.bind(null, '/contact')}
                         onTouchTap={this.handleClose.bind(this)}
                         disabled={this.props.page === 'contact' ? true : false}>
-                        <span className={this.props.page === 'contact' ? 'disabled' : ''}>
+                        <span className={this.props.page === 'contact' ? 'nav-outline' : ''}>
                             Contact
                         </span>
                     </MenuItem>
