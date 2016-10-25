@@ -75,7 +75,7 @@ var Surfing = React.createClass({
                 },
             })}>
               	<div style={styles.container}>
-                    <Nav label="Surfing" url={false} outline="nav-outline" disabled={true}/>
+                    <Nav page="surfing" />
 
                     <Dialog
                         className='dialog'

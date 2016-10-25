@@ -75,7 +75,7 @@ var Contact = React.createClass({
                 },
             })}>
               	<div style={styles.container}>
-                    <Nav label="Surfing" url={false} outline=""/>
+                    <Nav page="contact" />
 
                     <Dialog
                         className='dialog'

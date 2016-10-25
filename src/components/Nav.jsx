@@ -43,6 +43,7 @@ export default class MainMenu extends React.Component {
             value: 1,
             open: false,
         };
+        console.log(this.props)
     }
 
     goToPage(loc) {
@@ -53,17 +54,29 @@ export default class MainMenu extends React.Component {
         return (
             <div className="dt-menu">
                 <FlatButton
-                    onClick={this.goToPage.bind(null, this.props.url)}
+                    onClick={this.goToPage.bind(null, '/surfing')}
+                    disabled={this.props.page === 'surfing' ? true : false}
                     label={
-                        <span className={this.props.outline}>
-                            {this.props.label}
+                        <span className={this.props.page === 'surfing' ? 'nav-outline' : ''}>
+                            Surfing
                         </span>
                     }
-                    disabled={this.props.disabled}
-                    primary={true}/>
+                    primary={true}
+                />
+
                 <FlatButton label="Skating" onTouchTap={this.props.handleTouchTap} primary={true} />
                 <FlatButton label="Snowboarding" onTouchTap={this.props.handleTouchTap} primary={true} />
-                <FlatButton label="Contact" onClick={this.goToPage.bind(null, '/contact')} primary={true} />
+
+                <FlatButton
+                    onClick={this.goToPage.bind(null, '/contact')}
+                    disabled={this.props.page === 'contact' ? true : false}
+                    label={
+                        <span className={this.props.page === 'contact' ? 'nav-outline' : ''}>
+                            Contact
+                        </span>
+                    }
+                    primary={true}
+                />
 
                 {/*
                 <DropDownMenu
@@ -156,12 +169,9 @@ export default class Nav extends React.Component {
                     }
                     iconStyleLeft={styles.appBar.iconLeft}>
 
-                    <MainMenu label={
-                        this.props.label}
-                        url={this.props.url}
+                    <MainMenu
+                        page={this.props.page}
                         handleTouchTap={this.handleTouchTap.bind(this)}
-                        outline={this.props.outline}
-                        disabled={this.props.disabled}
                     />
                 </AppBar>
 
@@ -174,17 +184,24 @@ export default class Nav extends React.Component {
                     <div className="drawer-header primary-cyan-bg">RecoveryX</div>
 
                     <MenuItem
-                        onClick={this.goToPage.bind(null, this.props.url)}
+                        onClick={this.goToPage.bind(null, '/surfing')}
                         onTouchTap={this.handleClose.bind(this)}
-                        disabled={this.props.disabled}>
-                        <span className={this.props.outline}>
-                            {this.props.label}
+                        disabled={this.props.page === 'surfing' ? true : false}>
+                        <span className={this.props.page === 'surfing' ? 'disabled' : ''}>
+                            Surfing
                         </span>
                     </MenuItem>
 
                     <MenuItem onTouchTap={this.handleTouchTap.bind(this)}>Skating</MenuItem>
                     <MenuItem onTouchTap={this.handleTouchTap.bind(this)}>Snowboarding</MenuItem>
-                    <MenuItem onTouchTap={this.handleTouchTap.bind(this)}>Contact</MenuItem>
+                    <MenuItem
+                        onClick={this.goToPage.bind(null, '/contact')}
+                        onTouchTap={this.handleClose.bind(this)}
+                        disabled={this.props.page === 'contact' ? true : false}>
+                        <span className={this.props.page === 'contact' ? 'disabled' : ''}>
+                            Contact
+                        </span>
+                    </MenuItem>
 
                     {/*
                     <DropDownMenu value={this.state.value}>
