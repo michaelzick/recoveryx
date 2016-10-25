@@ -28,10 +28,9 @@ const styles = {
 
 const MainInfoCard = () => (
     <Card className="surf-main-info-card">
-        <CardTitle title="Surfing Meetups" subtitle="" />
+        <CardTitle title="Michael Zick: Founder" subtitle="" />
         <CardText style={styles.card.cardText}>
-            Currently our surfing schedule is organized through meetups found through our <a href=''>Facebook page</a>.
-             You can also check us out on <a href="">Instragram</a>.
+            Coming Soon
         </CardText>
         <CardActions>
             <FlatButton onClick={() => window.open('//www.facebook.com/rxorg','_blank')} label="Facebook" />
