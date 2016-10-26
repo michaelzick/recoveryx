@@ -30,9 +30,9 @@ const MainInfoCard = () => (
     <Card className="surf-main-info-card">
         <CardTitle title="Surfing Meetups" subtitle="" />
         <CardText style={styles.card.cardText}>
-            Currently our surfing schedule is organized through meetups found through our
-            <a href="//www.facebook.com/rxorg" class="underline"> Facebook page</a>.
-             You can also check us out on <a href="//www.instagram.com/rxorg" class="underline">Instragram</a>.
+            Currently our surfing schedule is organized through meetups found through
+             our <a className="social-link" href="//www.facebook.com/rxorg" class="underline">Facebook</a> page.
+             You can also check us out on <a className="social-link" href="//www.instagram.com/rxorg" class="underline">Instragram</a>.
         </CardText>
         <CardActions>
             <FlatButton onClick={() => window.open('//www.facebook.com/rxorg','_blank')} label="Facebook" />

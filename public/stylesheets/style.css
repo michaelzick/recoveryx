@@ -180,6 +180,10 @@ a {
     top: 440px;
     width: 90%;
 }
+
+.social-link {
+    text-decoration: underline;
+}
 /*END SURFING*/
 
 @media only screen and (max-width: 767px) {
