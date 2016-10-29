@@ -130,7 +130,7 @@ a {
 
 .main-info-wrapper {
     margin: 0 auto;
-    width: 90%;
+    width: 60%;
 }
 
 .card-margin-top {
@@ -193,6 +193,12 @@ a {
     margin-top: -130px;
 }
 /*END CONTACT*/
+
+@media only screen and (max-width: 1400px) {
+    .main-info-wrapper {
+        width: 70%;
+    }
+}
 
 @media only screen and (max-width: 767px) {
     .dt-menu {
