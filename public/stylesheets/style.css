@@ -30,6 +30,7 @@ a {
     background: url('../img/bg/blue-wave-wallpaper.jpg') 0 0 no-repeat;
     height: 550px;
     position: relative;
+    z-index: -1;
 }
 
 .hero-inner {
@@ -185,6 +186,12 @@ a {
     text-decoration: underline;
 }
 /*END SURFING*/
+
+/*CONTACT*/
+.contact-main-info-card {
+    margin-top: -130px;
+}
+/*END CONTACT*/
 
 @media only screen and (max-width: 767px) {
     .dt-menu {

@@ -26,6 +26,31 @@ const styles = {
     },
 };
 
+const CardExampleWithAvatar = () => (
+    <Card className="contact-main-info-card">
+        <CardHeader
+            title="URL Avatar"
+            subtitle="Subtitle"
+            avatar="img/me/porto.jpg"
+        />
+        <CardMedia
+            overlay={<CardTitle title="Overlay title" subtitle="Overlay subtitle" />}>
+            <img src="img/me/porto.jpg" />
+        </CardMedia>
+        <CardTitle title="Card title" subtitle="Card subtitle" />
+        <CardText>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
+            Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
+            Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
+        </CardText>
+        <CardActions>
+            <FlatButton label="Action1" />
+            <FlatButton label="Action2" />
+        </CardActions>
+    </Card>
+);
+
 const MainInfoCard = () => (
     <Card className="surf-main-info-card">
         <CardTitle title="Michael Zick: Founder" subtitle="" />
@@ -94,7 +119,7 @@ var Contact = React.createClass({
                     </div>
 
                     <div className="main-info-wrapper">
-                        <MainInfoCard />
+                        <CardExampleWithAvatar />
                     </div>
 
                     <Footer/>
