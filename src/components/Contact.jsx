@@ -26,36 +26,25 @@ const styles = {
     },
 };
 
-const CardExampleWithAvatar = () => (
+const ContactCard = () => (
     <Card className="contact-main-info-card">
         <CardHeader
-            title="URL Avatar"
-            subtitle="Subtitle"
+            title="Michael Zick"
+            subtitle="Founder"
             avatar="img/me/porto.jpg"
         />
-        <CardMedia
-            overlay={<CardTitle title="Overlay title" subtitle="Overlay subtitle" />}>
+        <CardMedia>
             <img src="img/me/porto.jpg" />
         </CardMedia>
-        <CardTitle title="Card title" subtitle="Card subtitle" />
         <CardText>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-            Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-            Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
-        </CardText>
-        <CardActions>
-            <FlatButton label="Action1" />
-            <FlatButton label="Action2" />
-        </CardActions>
-    </Card>
-);
-
-const MainInfoCard = () => (
-    <Card className="surf-main-info-card">
-        <CardTitle title="Michael Zick: Founder" subtitle="" />
-        <CardText style={styles.card.cardText}>
-            Coming Soon
+            Michael started RecoveryX out of a need to connect with people doing what he loved the most,
+             with people looking to challenge themselves to become better individuals, better athletes and better
+             than they were before.
+             {<br/>}
+             {<br/>}
+            A web developer by trade, a musician by hobby and an ocean lover at heart, Michael is actualy a natural introvert.
+             However by contrary action and the desire to help other people, RecoveryX was born out of a willingness to change;
+             a change that he hopes will inspire those looking for a way out of addiction.
         </CardText>
         <CardActions>
             <FlatButton onClick={() => window.open('//www.facebook.com/rxorg','_blank')} label="Facebook" />
@@ -119,7 +108,7 @@ var Contact = React.createClass({
                     </div>
 
                     <div className="main-info-wrapper">
-                        <CardExampleWithAvatar />
+                        <ContactCard />
                     </div>
 
                     <Footer/>
