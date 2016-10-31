@@ -178,9 +178,7 @@ a {
 
 /*SURFING*/
 .surf-main-info-card {
-    position: absolute;
-    top: 440px;
-    width: 90%;
+    margin-top: -80px;
 }
 
 .social-link {
