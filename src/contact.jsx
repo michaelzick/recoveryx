@@ -1,8 +1,8 @@
 var React         = require('react'),
     ReactDOM      = require('react-dom'),
-    Surfing = require('./components/Contact.jsx');
+    Contact       = require('./components/Contact.jsx');
 
 ReactDOM.render(
-  <Surfing/>,
+  <Contact/>,
   document.getElementById("react-container")
 );
