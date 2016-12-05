@@ -62,7 +62,7 @@ const InfoCard = () => (
         <CardTitle title="Our Mission:"
             subtitle={
                 <span className="card-subtitle">
-                    Provide an active outlet for those recovering from drug and alcohol addiction.
+                    To provide an active outlet for those recovering from drug and alcohol addiction.
                 </span>
             }
         />
