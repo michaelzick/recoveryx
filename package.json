@@ -11,7 +11,8 @@
     "object-assign": "^4.0.1",
     "react": "^15.1.0",
     "react-dom": "^15.0.0",
-    "react-tap-event-plugin": "^2.0.1"
+    "react-tap-event-plugin": "^2.0.1",
+    "http-proxy": "~1.16.2"
   },
   "devDependencies": {
     "babel-core": "^6.5.1",

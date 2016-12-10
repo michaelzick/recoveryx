@@ -2,6 +2,22 @@
 var debug = require('debug')('MODULE_NAME');
 var app = require('../app');
 
+var http = require('http'),
+    httpProxy = require('http-proxy');
+//
+// Create your proxy server and set the target in the options.
+//
+httpProxy.createProxyServer({target:'http://localhost:3001'}).listen(8000);
+
+//
+// Create your target server
+//
+http.createServer(function (req, res) {
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  res.write('request successfully proxied!' + '\n' + JSON.stringify(req.headers, true, 2));
+  res.end();
+});
+
 app.set('port', process.env.PORT || 80);
 
 var server = app.listen(app.get('port'), function() {
