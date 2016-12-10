@@ -7,22 +7,22 @@ var work = [];
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  MongoClient.connect("mongodb://localhost:27017/michaelmulti", function(err, db) {
-    if(!err) {
-      console.log("We are connected");
-    }
-    db.collection("work", function(err, collection) {
-      collection.find().sort({order_num: 1}).toArray(function(err, result) {
-        if (err) {
-          throw err;
-        } else {
-          for (var i = 0; i < result.length; i++) {
-            work[i] = result[i];
-          }
-        }
-      });
-    });
-  });
+  // MongoClient.connect("mongodb://localhost:27017/michaelmulti", function(err, db) {
+  //   if(!err) {
+  //     console.log("We are connected");
+  //   }
+  //   db.collection("work", function(err, collection) {
+  //     collection.find().sort({order_num: 1}).toArray(function(err, result) {
+  //       if (err) {
+  //         throw err;
+  //       } else {
+  //         for (var i = 0; i < result.length; i++) {
+  //           work[i] = result[i];
+  //         }
+  //       }
+  //     });
+  //   });
+  // });
 
   res.render('index', {
     title: 'RecoveryX',
