@@ -255,6 +255,10 @@ a {
     .card-margin-top {
         margin-top: 30px;
     }
+
+    .drawer-header {
+        cursor: pointer;
+    }
 }
 
 @media only screen and (max-width: 419px) {

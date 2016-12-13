@@ -180,7 +180,11 @@ export class Nav extends React.Component {
                     open={this.state.open}
                     onRequestChange={(open) => this.setState({open})}>
 
-                    <div className="drawer-header primary-cyan-bg">RecoveryX</div>
+                    <div className="drawer-header primary-cyan-bg"
+                        onClick={this.goToPage.bind(null, '/')}
+                        onTouchTap={this.handleClose.bind(this)}>
+                        RecoveryX
+                    </div>
 
                     <MenuItem
                         onClick={this.goToPage.bind(null, '/surfing')}
