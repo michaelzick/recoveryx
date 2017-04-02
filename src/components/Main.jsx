@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Actions from '../../src/actions/Actions';
 import Store from '../../src/stores/Store';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
@@ -10,7 +10,7 @@ import Dialog from 'material-ui/Dialog';
 import Paper from 'material-ui/Paper';
 import Footer from '../../src/components/Footer.jsx';
 import Nav from '../../src/components/Nav.jsx';
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import {Card, CardActions, CardTitle, CardText} from 'material-ui/Card';
 // import ReactDOM from 'react-dom';
 // import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 // import {cyanA100} from 'material-ui/styles/colors';

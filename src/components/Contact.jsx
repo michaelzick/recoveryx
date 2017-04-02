@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Actions from '../../src/actions/Actions';
 import Store from '../../src/stores/Store';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
@@ -7,7 +7,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import FlatButton from 'material-ui/FlatButton';
 import {cyanA200} from 'material-ui/styles/colors';
 import Dialog from 'material-ui/Dialog';
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import {Card, CardActions, CardHeader, CardMedia, CardText} from 'material-ui/Card';
 import Footer from '../../src/components/Footer.jsx';
 import Nav from '../../src/components/Nav.jsx';
 
