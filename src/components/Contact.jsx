@@ -34,7 +34,7 @@ const ContactCard = () => (
             avatar="img/me/porto.jpg"
         />
         <CardMedia>
-            <img src="img/me/porto-bw.jpg" />
+            <img src="img/me/porto-stylized.jpg" />
         </CardMedia>
         <CardText>
             Michael started RecoveryX out of a need to connect with people doing what he loved the most,
