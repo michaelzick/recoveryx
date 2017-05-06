@@ -35,7 +35,7 @@ const styles = {
     },
 };
 
-export class MainMenu extends React.Component {
+class MainMenu extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
