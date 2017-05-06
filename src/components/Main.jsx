@@ -1,6 +1,4 @@
 import React from 'react';
-import Actions from '../../src/actions/Actions';
-import Store from '../../src/stores/Store';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -94,11 +92,9 @@ var Main = React.createClass({
     },
 
     getInitialState: function() {
-        return Store.get();
-    },
-
-    handleChange: function() {
-        Actions.set(this.state.value);
+        return {
+            open: false
+        };
     },
 
     handleTouchTap: function(title, text) {
