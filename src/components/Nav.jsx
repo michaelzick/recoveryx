@@ -44,7 +44,7 @@ export class MainMenu extends React.Component {
         };
     }
 
-    goToPage(loc) {
+    goToPage (loc) {
         window.location = loc;
     }
 

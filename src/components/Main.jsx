@@ -80,37 +80,34 @@ const InfoCard = () => (
     </Card>
 );
 
-var Main = React.createClass({
-    state: {
-        open: false
-    },
+class Main extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            open: false,
+        };
+    }
 
-    handleRequestClose: function() {
+    handleRequestClose () {
         this.setState({
             open: false,
         });
-    },
+    }
 
-    getInitialState: function() {
-        return {
-            open: false
-        };
-    },
-
-    handleTouchTap: function(title, text) {
+    handleTouchTap (title, text) {
         this.setState({
             open: true,
             title: title,
             dialogText: text
         });
-    },
+    }
 
-    render: function() {
+    render () {
         const standardActions = (
           <FlatButton
             label="Ok"
             primary={true}
-            onTouchTap={this.handleRequestClose}
+            onTouchTap={this.handleRequestClose.bind(this)}
           />
         );
 
@@ -129,7 +126,7 @@ var Main = React.createClass({
                         open={this.state.open}
                         title={this.state.title}
                         actions={standardActions}
-                        onRequestClose={this.handleRequestClose}>
+                        onRequestClose={this.handleRequestClose.bind(this)}>
                         {this.state.dialogText}
                     </Dialog>
 
@@ -145,7 +142,7 @@ var Main = React.createClass({
                         <div className="circle-block">
                             <Paper
                                 className="surfboard-card main-card"
-                                onTouchTap={this.handleTouchTap.bind(null, 'Sports', dialogText.sports)}
+                                onTouchTap={this.handleTouchTap.bind(this, 'Sports', dialogText.sports)}
                                 style={styles.circlePaper} zDepth={2}
                                 circle={true}>
                             </Paper>
@@ -155,7 +152,7 @@ var Main = React.createClass({
                         <div className="circle-block">
                             <Paper
                                 className="cleanup-card main-card"
-                                onTouchTap={this.handleTouchTap.bind(null, 'Service', dialogText.service)}
+                                onTouchTap={this.handleTouchTap.bind(this, 'Service', dialogText.service)}
                                 style={styles.circlePaper} zDepth={2}
                                 circle={true}>
                             </Paper>
@@ -165,7 +162,7 @@ var Main = React.createClass({
                         <div className="circle-block">
                             <Paper
                                 className="twelve-card main-card"
-                                onTouchTap={this.handleTouchTap.bind(null, 'Steps', dialogText.steps)}
+                                onTouchTap={this.handleTouchTap.bind(this, 'Steps', dialogText.steps)}
                                 style={styles.circlePaper} zDepth={2}
                                 circle={true}>
                             </Paper>
@@ -182,6 +179,6 @@ var Main = React.createClass({
             </MuiThemeProvider>
         );
     }
-});
+}
 
 module.exports = Main;
