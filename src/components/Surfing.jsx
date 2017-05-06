@@ -28,8 +28,8 @@ const MainInfoCard = () => (
         <CardTitle title="Surfing Meetups" subtitle="" />
         <CardText style={styles.card.cardText}>
             Currently our surfing schedule is organized through meetups found through
-             our <a className="social-link" href="//www.facebook.com/rxorg" class="underline">Facebook</a> page.
-             You can also check us out on <a className="social-link" href="//www.instagram.com/rxorg" class="underline">Instragram</a>.
+             our <a className="social-link" href="//www.facebook.com/rxorg" className="underline">Facebook</a> page.
+             You can also check us out on <a className="social-link" href="//www.instagram.com/rxorg" className="underline">Instragram</a>.
         </CardText>
         <CardActions>
             <FlatButton onClick={() => window.open('//www.facebook.com/rxorg','_blank')} label="Facebook" />
@@ -38,8 +38,8 @@ const MainInfoCard = () => (
     </Card>
 );
 
-var Surfing = React.createClass({
-    render: function() {
+class Surfing extends React.Component {
+    render () {
         return (
             <MuiThemeProvider muiTheme={getMuiTheme({
                 palette: {
@@ -64,6 +64,6 @@ var Surfing = React.createClass({
             </MuiThemeProvider>
         );
     }
-});
+}
 
 module.exports = Surfing;

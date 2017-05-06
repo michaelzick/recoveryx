@@ -4,13 +4,13 @@ const styles = {
 
 };
 
-var Footer = React.createClass({
-    render: function() {
+class Footer extends React.Component {
+    render () {
         return (
           	<div id="footer" style={styles.container}>
             </div>
         );
     }
-});
+}
 
 module.exports = Footer;

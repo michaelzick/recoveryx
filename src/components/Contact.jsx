@@ -50,8 +50,8 @@ const ContactCard = () => (
     </Card>
 );
 
-var Contact = React.createClass({
-    render: function() {
+class Contact extends React.Component {
+    render () {
         return (
             <MuiThemeProvider muiTheme={getMuiTheme({
                 palette: {
@@ -76,6 +76,6 @@ var Contact = React.createClass({
             </MuiThemeProvider>
         );
     }
-});
+}
 
 module.exports = Contact;
