@@ -93,7 +93,7 @@ export class MainMenu extends React.Component {
     }
 }
 
-export class Nav extends React.Component {
+class Nav extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
