@@ -1,12 +1,9 @@
 import React from 'react';
-import Actions from '../../src/actions/Actions';
-import Store from '../../src/stores/Store';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import FlatButton from 'material-ui/FlatButton';
 import {cyanA200} from 'material-ui/styles/colors';
-import Dialog from 'material-ui/Dialog';
 import {Card, CardActions, CardHeader, CardMedia, CardText} from 'material-ui/Card';
 import Footer from '../../src/components/Footer.jsx';
 import Nav from '../../src/components/Nav.jsx';
@@ -54,33 +51,7 @@ const ContactCard = () => (
 );
 
 var Contact = React.createClass({
-    state: {
-        open: false
-    },
-
-    handleRequestClose: function() {
-        this.setState({
-            open: false,
-        });
-    },
-
-    getInitialState: function() {
-        return Store.get();
-    },
-
-    handleChange: function() {
-        Actions.set(this.state.value);
-    },
-
     render: function() {
-        const standardActions = (
-            <FlatButton
-                label="Ok"
-                primary={true}
-                onTouchTap={this.handleRequestClose}
-            />
-        );
-
         return (
             <MuiThemeProvider muiTheme={getMuiTheme({
                 palette: {
@@ -89,17 +60,6 @@ var Contact = React.createClass({
             })}>
               	<div style={styles.container}>
                     <Nav page="contact" />
-
-                    <Dialog
-                        className='dialog'
-                        open={this.state.open}
-                        title="Sports"
-                        actions={standardActions}
-                        onRequestClose={this.handleRequestClose}>
-                        {this.state.dialogText}
-                    </Dialog>
-
-                    <div className="clear"></div>
 
                     <div className="hero">
                         <div className="hero-inner">

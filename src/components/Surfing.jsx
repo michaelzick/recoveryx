@@ -4,7 +4,6 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import FlatButton from 'material-ui/FlatButton';
 import {cyanA200} from 'material-ui/styles/colors';
-import Dialog from 'material-ui/Dialog';
 import {Card, CardActions, CardTitle, CardText} from 'material-ui/Card';
 import Footer from '../../src/components/Footer.jsx';
 import Nav from '../../src/components/Nav.jsx';
