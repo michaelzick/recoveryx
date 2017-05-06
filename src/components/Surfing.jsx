@@ -38,32 +38,28 @@ const MainInfoCard = () => (
     </Card>
 );
 
-class Surfing extends React.Component {
-    render () {
-        return (
-            <MuiThemeProvider muiTheme={getMuiTheme({
-                palette: {
-                    primary1Color: cyanA200
-                },
-            })}>
-              	<div style={styles.container}>
-                    <Nav page="surfing" />
+const Surfing = () => (
+    <MuiThemeProvider muiTheme={getMuiTheme({
+        palette: {
+            primary1Color: cyanA200
+        },
+    })}>
+      	<div style={styles.container}>
+            <Nav page="surfing" />
 
-                    <div className="hero">
-                        <div className="hero-inner">
-                            <h1 className="hero-title">Surfing</h1>
-                        </div>
-                    </div>
-
-                    <div className="main-info-wrapper">
-                        <MainInfoCard />
-                    </div>
-
-                    <Footer/>
+            <div className="hero">
+                <div className="hero-inner">
+                    <h1 className="hero-title">Surfing</h1>
                 </div>
-            </MuiThemeProvider>
-        );
-    }
-}
+            </div>
+
+            <div className="main-info-wrapper">
+                <MainInfoCard />
+            </div>
+
+            <Footer/>
+        </div>
+    </MuiThemeProvider>
+);
 
 module.exports = Surfing;

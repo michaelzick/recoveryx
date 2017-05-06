@@ -50,32 +50,28 @@ const ContactCard = () => (
     </Card>
 );
 
-class Contact extends React.Component {
-    render () {
-        return (
-            <MuiThemeProvider muiTheme={getMuiTheme({
-                palette: {
-                    primary1Color: cyanA200
-                },
-            })}>
-              	<div style={styles.container}>
-                    <Nav page="contact" />
+const Contact = () => (
+    <MuiThemeProvider muiTheme={getMuiTheme({
+        palette: {
+            primary1Color: cyanA200
+        },
+    })}>
+      	<div style={styles.container}>
+            <Nav page="contact" />
 
-                    <div className="hero">
-                        <div className="hero-inner">
-                            <h1 className="hero-title">Contact</h1>
-                        </div>
-                    </div>
-
-                    <div className="main-info-wrapper">
-                        <ContactCard />
-                    </div>
-
-                    <Footer/>
+            <div className="hero">
+                <div className="hero-inner">
+                    <h1 className="hero-title">Contact</h1>
                 </div>
-            </MuiThemeProvider>
-        );
-    }
-}
+            </div>
+
+            <div className="main-info-wrapper">
+                <ContactCard />
+            </div>
+
+            <Footer/>
+        </div>
+    </MuiThemeProvider>
+);
 
 module.exports = Contact;

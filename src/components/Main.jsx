@@ -9,17 +9,6 @@ import Paper from 'material-ui/Paper';
 import Footer from '../../src/components/Footer.jsx';
 import Nav from '../../src/components/Nav.jsx';
 import {Card, CardActions, CardTitle, CardText} from 'material-ui/Card';
-// import ReactDOM from 'react-dom';
-// import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
-// import {cyanA100} from 'material-ui/styles/colors';
-// import {cyan400} from 'material-ui/styles/colors';
-// import AppBar from 'material-ui/AppBar';
-// import RaisedButton from 'material-ui/RaisedButton';
-// import Drawer from 'material-ui/Drawer';
-// import MenuItem from 'material-ui/MenuItem';
-// import IconButton from 'material-ui/IconButton';
-// import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-// import DropDownMenu from 'material-ui/DropDownMenu';
 // import ReactCSSTransitionGroup from 'react-addons-transition-group';
 
 // Needed for onTouchTap
