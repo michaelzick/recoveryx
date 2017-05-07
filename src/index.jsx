@@ -3,6 +3,6 @@ var React         = require('react'),
     Main = require('./components/Main.jsx');
 
 ReactDOM.render(
-  <Main dataFeed={workData}/>,
+  <Main/>,
   document.getElementById("react-container")
 );
