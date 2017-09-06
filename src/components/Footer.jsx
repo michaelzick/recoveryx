@@ -1,9 +1,0 @@
-import React from 'react';
-
-const styles = {};
-
-const Footer = () => (
-  	<div id="footer" style={styles.container}></div>
-);
-
-module.exports = Footer;

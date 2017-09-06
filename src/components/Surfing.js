@@ -1,3 +1,5 @@
+/* jslint esversion:6 */
+
 (function () {
   'use strict';
 })();
@@ -8,7 +10,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import FlatButton from 'material-ui/FlatButton';
 import {cyanA200} from 'material-ui/styles/colors';
-import {Card, CardActions, CardHeader, CardMedia, CardText} from 'material-ui/Card';
+import {Card, CardActions, CardTitle, CardText} from 'material-ui/Card';
 import Footer from '../../src/components/Footer.jsx';
 import Nav from '../../src/components/Nav.jsx';
 
@@ -27,25 +29,13 @@ const styles = {
     },
 };
 
-const ContactCard = () => (
-    <Card className="contact-main-info-card">
-        <CardHeader
-            title="Michael Zick"
-            subtitle="Founder"
-            avatar="img/me/porto.jpg"
-        />
-        <CardMedia>
-            <img src="img/me/porto-stylized.jpg" />
-        </CardMedia>
-        <CardText>
-            Michael started RecoveryX out of a need to connect with people doing what he loved the most,
-             with people looking to challenge themselves to become better individuals, better athletes and better
-             than they were before.
-             {<br/>}
-             {<br/>}
-            A web developer by trade, a musician by hobby and an ocean lover at heart, Michael is actualy a natural introvert.
-             However by contrary action and the desire to help other people, RecoveryX was born out of a willingness to change;
-             a change that he hopes will inspire those looking for a way out of addiction.
+const MainInfoCard = () => (
+    <Card className="surf-main-info-card">
+        <CardTitle title="Surfing Meetups" subtitle="" />
+        <CardText style={styles.card.cardText}>
+            Currently our surfing schedule is organized through meetups found through
+             our <a className="social-link" href="//www.facebook.com/rxorg" className="underline">Facebook</a> page.
+             You can also check us out on <a className="social-link" href="//www.instagram.com/rxorg" className="underline">Instragram</a>.
         </CardText>
         <CardActions>
             <FlatButton onClick={() => window.open('//www.facebook.com/rxorg','_blank')} label="Facebook" />
@@ -54,23 +44,23 @@ const ContactCard = () => (
     </Card>
 );
 
-const Contact = () => (
+const Surfing = () => (
     <MuiThemeProvider muiTheme={getMuiTheme({
         palette: {
             primary1Color: cyanA200
         },
     })}>
-        <div style={styles.container}>
-            <Nav page="contact" />
+      	<div style={styles.container}>
+            <Nav page="surfing" />
 
             <div className="hero">
                 <div className="hero-inner">
-                    <h1 className="hero-title">Contact</h1>
+                    <h1 className="hero-title">Surfing</h1>
                 </div>
             </div>
 
             <div className="main-info-wrapper">
-                <ContactCard />
+                <MainInfoCard />
             </div>
 
             <Footer/>
@@ -78,4 +68,4 @@ const Contact = () => (
     </MuiThemeProvider>
 );
 
-module.exports = Contact;
+module.exports = Surfing;
