@@ -38,13 +38,14 @@ const styles = {
 class MainMenu extends React.Component {
     constructor(props) {
         super(props);
+
         this.state = {
             value: 1,
             open: false,
         };
     }
 
-    goToPage (loc) {
+    goToPage(loc) {
         window.location = loc;
     }
 
@@ -96,11 +97,18 @@ class MainMenu extends React.Component {
 class Nav extends React.Component {
     constructor(props) {
         super(props);
+
         this.state = {
             open: false,
             value: 1,
             popOpen: false
         };
+
+        this.handleToggle = this.handleToggle.bind(this);
+        this.handleClose = this.handleClose.bind(this);
+        this.goToPage = this.goToPage.bind(this);
+        this.handleTouchTap = this.handleTouchTap.bind(this);
+        this.handleRequestClose = this.handleRequestClose.bind(this);
     }
 
     handleToggle() {
@@ -146,7 +154,7 @@ class Nav extends React.Component {
                   anchorEl={this.state.anchorEl}
                   anchorOrigin={{horizontal: 'left', vertical: 'bottom'}}
                   targetOrigin={{horizontal: 'left', vertical: 'top'}}
-                  onRequestClose={this.handleRequestClose.bind(this)}>
+                  onRequestClose={this.handleRequestClose}>
                   <Menu>
                     <MenuItem primaryText="Coming Soon!" disabled={true} />
                   </Menu>
@@ -154,7 +162,7 @@ class Nav extends React.Component {
 
                 <AppBar
                     style={styles.appBar}
-                    onLeftIconButtonTouchTap={this.handleToggle.bind(this)}
+                    onLeftIconButtonTouchTap={this.handleToggle}
                     iconClassNameLeft="app-bar-burger"
                     className="app-bar"
                     title={
@@ -169,7 +177,7 @@ class Nav extends React.Component {
 
                     <MainMenu
                         page={this.props.page}
-                        handleTouchTap={this.handleTouchTap.bind(this)}
+                        handleTouchTap={this.handleTouchTap}
                     />
                 </AppBar>
 
@@ -181,24 +189,24 @@ class Nav extends React.Component {
 
                     <div className="drawer-header primary-cyan-bg"
                         onClick={this.goToPage.bind(null, '/')}
-                        onTouchTap={this.handleClose.bind(this)}>
+                        onTouchTap={this.handleClose}>
                         RecoveryX
                     </div>
 
                     <MenuItem
                         onClick={this.goToPage.bind(null, '/surfing')}
-                        onTouchTap={this.handleClose.bind(this)}
+                        onTouchTap={this.handleClose}
                         disabled={this.props.page === 'surfing' ? true : false}>
                         <span className={this.props.page === 'surfing' ? 'nav-outline' : ''}>
                             Surfing
                         </span>
                     </MenuItem>
 
-                    <MenuItem onTouchTap={this.handleTouchTap.bind(this)}>Skating</MenuItem>
-                    <MenuItem onTouchTap={this.handleTouchTap.bind(this)}>Snowboarding</MenuItem>
+                    <MenuItem onTouchTap={this.handleTouchTap}>Skating</MenuItem>
+                    <MenuItem onTouchTap={this.handleTouchTap}>Snowboarding</MenuItem>
                     <MenuItem
                         onClick={this.goToPage.bind(null, '/contact')}
-                        onTouchTap={this.handleClose.bind(this)}
+                        onTouchTap={this.handleClose}
                         disabled={this.props.page === 'contact' ? true : false}>
                         <span className={this.props.page === 'contact' ? 'nav-outline' : ''}>
                             Contact
@@ -208,10 +216,10 @@ class Nav extends React.Component {
                     {/*
                     <DropDownMenu value={this.state.value}>
                         <MenuItem value={1} primaryText="Other" />
-                        <MenuItem value={2} onTouchTap={this.handleClose.bind(this)} primaryText="Running" />
-                        <MenuItem value={3} onTouchTap={this.handleClose.bind(this)} primaryText="Hiking" />
-                        <MenuItem value={4} onTouchTap={this.handleClose.bind(this)} primaryText="Swimming" />
-                        <MenuItem value={5} onTouchTap={this.handleClose.bind(this)} primaryText="Add a sport" />
+                        <MenuItem value={2} onTouchTap={this.handleClose} primaryText="Running" />
+                        <MenuItem value={3} onTouchTap={this.handleClose} primaryText="Hiking" />
+                        <MenuItem value={4} onTouchTap={this.handleClose} primaryText="Swimming" />
+                        <MenuItem value={5} onTouchTap={this.handleClose} primaryText="Add a sport" />
                     </DropDownMenu>
                     */}
                 </Drawer>

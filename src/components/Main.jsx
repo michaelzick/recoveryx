@@ -72,18 +72,22 @@ const InfoCard = () => (
 class Main extends React.Component {
     constructor(props) {
         super(props);
+
         this.state = {
             open: false,
         };
+
+        this.handleRequestClose = this.handleRequestClose.bind(this);
+        this.handleTouchTap = this.handleTouchTap.bind(this);
     }
 
-    handleRequestClose () {
+    handleRequestClose() {
         this.setState({
             open: false,
         });
     }
 
-    handleTouchTap (title, text) {
+    handleTouchTap(title, text) {
         this.setState({
             open: true,
             title: title,
@@ -96,7 +100,7 @@ class Main extends React.Component {
           <FlatButton
             label="Ok"
             primary={true}
-            onTouchTap={this.handleRequestClose.bind(this)}
+            onTouchTap={this.handleRequestClose}
           />
         );
 
@@ -115,7 +119,7 @@ class Main extends React.Component {
                         open={this.state.open}
                         title={this.state.title}
                         actions={standardActions}
-                        onRequestClose={this.handleRequestClose.bind(this)}>
+                        onRequestClose={this.handleRequestClose}>
                         {this.state.dialogText}
                     </Dialog>
 
@@ -131,7 +135,7 @@ class Main extends React.Component {
                         <div className="circle-block">
                             <Paper
                                 className="surfboard-card main-card"
-                                onTouchTap={this.handleTouchTap.bind(this, 'Sports', dialogText.sports)}
+                                onTouchTap={this.handleTouchTap.bind(null, 'Sports', dialogText.sports)}
                                 style={styles.circlePaper} zDepth={2}
                                 circle={true}>
                             </Paper>
@@ -141,7 +145,7 @@ class Main extends React.Component {
                         <div className="circle-block">
                             <Paper
                                 className="cleanup-card main-card"
-                                onTouchTap={this.handleTouchTap.bind(this, 'Service', dialogText.service)}
+                                onTouchTap={this.handleTouchTap.bind(null, 'Service', dialogText.service)}
                                 style={styles.circlePaper} zDepth={2}
                                 circle={true}>
                             </Paper>
@@ -151,7 +155,7 @@ class Main extends React.Component {
                         <div className="circle-block">
                             <Paper
                                 className="twelve-card main-card"
-                                onTouchTap={this.handleTouchTap.bind(this, 'Steps', dialogText.steps)}
+                                onTouchTap={this.handleTouchTap.bind(null, 'Steps', dialogText.steps)}
                                 style={styles.circlePaper} zDepth={2}
                                 circle={true}>
                             </Paper>
