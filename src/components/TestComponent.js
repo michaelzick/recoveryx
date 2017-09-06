@@ -4,27 +4,37 @@
   'use strict';
 })();
 
-var React = require('react'),
-    Actions = require('../actions/Actions'),
-    Store = require('../stores/Store');
+import React, {Component} from 'react';
+import Actions from '../actions/Actions';
+import Store from '../stores/Store';
 
-var TestComponent = React.createClass({
-  getInitialState: function() {
-    return Store.get();
-  },
-  componentDidMount: function() {
+class TestComponent extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = Store.get();
+    this.changeEventHandler = this.changeEventHandler.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleButtonClick = this.handleButtonClick.bind(this);
+  }
+
+  componentDidMount() {
     Store.addListener('change', this.changeEventHandler);
-  },
-  changeEventHandler: function() {
+  }
+
+  changeEventHandler() {
     this.setState(Store.get());
-  },
-  handleChange: function(event) {
+  }
+
+  handleChange(event) {
     Actions.set(event.target.value);
-  },
-  handleButtonClick: function(event) {
+  }
+
+  handleButtonClick() {
     Actions.add(1);
-  },
-  render: function() {
+  }
+
+  render() {
     return (
       <div>
         Hello <input onChange={this.handleChange} defaultValue={this.state.value} type="text"/>
@@ -33,6 +43,6 @@ var TestComponent = React.createClass({
         <span>{this.state.count}: {this.state.value}</span>
       </div>
   )}
-});
+}
 
 module.exports = TestComponent;
