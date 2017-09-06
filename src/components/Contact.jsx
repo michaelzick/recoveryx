@@ -1,3 +1,7 @@
+(function () {
+  'use strict';
+})();
+
 import React from 'react';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -56,7 +60,7 @@ const Contact = () => (
             primary1Color: cyanA200
         },
     })}>
-      	<div style={styles.container}>
+        <div style={styles.container}>
             <Nav page="contact" />
 
             <div className="hero">
