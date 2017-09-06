@@ -1,6 +1,6 @@
 var React         = require('react'),
     ReactDOM      = require('react-dom'),
-    Surfing = require('./components/Surfing.jsx');
+    Surfing = require('./components/Surfing.js');
 
 ReactDOM.render(
   <Surfing/>,

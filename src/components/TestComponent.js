@@ -1,3 +1,9 @@
+/* jslint esversion:6 */
+
+(function () {
+  'use strict';
+})();
+
 var React = require('react'),
     Actions = require('../actions/Actions'),
     Store = require('../stores/Store');
@@ -18,14 +24,14 @@ var TestComponent = React.createClass({
   handleButtonClick: function(event) {
     Actions.add(1);
   },
-	render: function() {
+  render: function() {
     return (
-    	<div>
-    		Hello <input onChange={this.handleChange} defaultValue={this.state.value} type="text"/>
-    		<button onClick={this.handleButtonClick}>+1</button>
+      <div>
+        Hello <input onChange={this.handleChange} defaultValue={this.state.value} type="text"/>
+        <button onClick={this.handleButtonClick}>+1</button>
         <hr/>
         <span>{this.state.count}: {this.state.value}</span>
-     	</div>
+      </div>
   )}
 });
 

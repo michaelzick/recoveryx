@@ -12,9 +12,10 @@ import FlatButton from 'material-ui/FlatButton';
 import {cyanA200} from 'material-ui/styles/colors';
 import Dialog from 'material-ui/Dialog';
 import Paper from 'material-ui/Paper';
-import Footer from '../../src/components/Footer.jsx';
-import Nav from '../../src/components/Nav.jsx';
+import Nav from './Nav';
 import {Card, CardActions, CardTitle, CardText} from 'material-ui/Card';
+
+import TestComponent from './TestComponent';
 // import ReactCSSTransitionGroup from 'react-addons-transition-group';
 
 // Needed for onTouchTap
@@ -170,10 +171,10 @@ class Main extends React.Component {
                     </div>
 
                     <div className="main-info-wrapper card-margin-top">
+                        <TestComponent/>
+
                         <InfoCard/>
                     </div>
-
-                    <Footer/>
                 </div>
             </MuiThemeProvider>
         );

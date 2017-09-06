@@ -11,8 +11,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import FlatButton from 'material-ui/FlatButton';
 import {cyanA200} from 'material-ui/styles/colors';
 import {Card, CardActions, CardHeader, CardMedia, CardText} from 'material-ui/Card';
-import Footer from '../../src/components/Footer.jsx';
-import Nav from '../../src/components/Nav.jsx';
+import Nav from './Nav';
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
